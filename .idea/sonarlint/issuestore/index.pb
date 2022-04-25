@@ -1,8 +1,6 @@
 
 s
 Csrc/main/java/ptit/QLKS/service/impl/EncryptDecryptServiceImpl.java,4/c/4c9a942eef64218409ae0bd8d52732439d492d38
-7
-pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
 \
 ,src/main/java/ptit/QLKS/vo/LoginRequest.java,3/1/310475f91a7b77b3bb8e291d3baf4cc6b3bb52fc
 \
@@ -119,13 +117,7 @@ d
 ,src/main/java/ptit/QLKS/entity/ChatRoom.java,4/6/46875356d34fd07976c9141390dea90b37ddbf7f
 _
 /src/main/java/ptit/QLKS/entity/ChatMessage.java,9/5/955992322aa456f6f3b545f626e9c1f85b61bf1c
-j
-:src/main/java/ptit/QLKS/repository/ChatRoomRepository.java,3/2/325dd4fec1a30224185de0bda97f220e787361d9
-i
-9src/main/java/ptit/QLKS/service/impl/ChatRoomService.java,f/6/f64ab2674e4f48294df4fd38d87499d1665c1d1d
 p
 @src/main/java/ptit/QLKS/exception/ResourceNotFoundException.java,9/2/92736a24c650ba5252e73c4eec1267a63b3c8c45
-m
-=src/main/java/ptit/QLKS/repository/ChatMessageRepository.java,5/c/5c401fd7743abbff7ef44f367b5e9967e3132756
 e
 5src/main/java/ptit/QLKS/config/WebSecurityConfig.java,d/5/d5f4311ad0db1594d8febe840e61864adb21e183
