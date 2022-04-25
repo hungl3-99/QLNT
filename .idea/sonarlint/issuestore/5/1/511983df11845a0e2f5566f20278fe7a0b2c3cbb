@@ -1,0 +1,5 @@
+
+b	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(…¯ñø8Ñ»¦Íþ/
+b	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ø›Ðâ8Ñ»¦Íþ/
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…¯ñø8Ò»¦Íþ/
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ú¹¹Ó

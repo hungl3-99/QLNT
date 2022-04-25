@@ -1,0 +1,107 @@
+package ptit.QLKS.service.impl;
+
+import lombok.extern.log4j.Log4j2;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
+import ptit.QLKS.constrant.Constrant;
+import ptit.QLKS.entity.Account;
+import ptit.QLKS.entity.Order;
+import ptit.QLKS.entity.Room;
+import ptit.QLKS.mapper.impl.RoomMapper;
+import ptit.QLKS.repository.AccountRepository;
+import ptit.QLKS.repository.OrderRepository;
+import ptit.QLKS.repository.RoomCustomRepository;
+import ptit.QLKS.repository.RoomRepository;
+import ptit.QLKS.service.RoomService;
+import ptit.QLKS.vo.CreateRoomRequest;
+import ptit.QLKS.vo.ListResponse;
+
+import javax.annotation.Resource;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@Service
+@Log4j2
+public class RoomServiceImpl implements RoomService {
+
+    @Resource
+    RoomMapper roomMapper;
+
+    @Resource
+    RoomRepository roomRepository;
+
+    @Resource
+    AccountRepository accountRepository;
+
+    @Resource
+    RoomCustomRepository roomCustomRepository;
+
+    @Resource
+    OrderRepository orderRepository;
+
+    @Override
+    public Room createRoom(CreateRoomRequest createRoomRequest) {
+        String username = getLoginUser();
+        Account account = accountRepository.findByUsername(username);
+
+        Room room = roomMapper.toEntity(createRoomRequest);
+        room.init();
+        room.setCreatedAt(new Date());
+        room.setCreatedBy(getLoginUser());
+        room.setStore(account);
+
+        return roomRepository.save(room);
+    }
+
+    @Override
+    public Room updateRoom(CreateRoomRequest updateRoomRequest) {
+        String username = getLoginUser();
+
+        Account account = accountRepository.findByUsername(username);
+        Optional<Room> oldInfo = roomRepository.findById(updateRoomRequest.getId());
+
+        if(ObjectUtils.isEmpty(oldInfo)){
+            throw new RuntimeException("Room is not Exist !!!");
+        }
+
+        Room room = oldInfo.get();
+
+        if(!room.getStore().equals(account)){
+            throw new IllegalArgumentException("UNAUTHORIZED  !!!");
+        }
+
+        room = roomMapper.toEntity(updateRoomRequest);
+        return roomRepository.save(room);
+    }
+
+    @Override
+    public ListResponse<?> getRoomByConditions(String location, String type, long number , int page , int size) {
+        long totalElement = roomCustomRepository.getTotalElement(location , type , number);
+        List<Room> result = roomCustomRepository.getRoomByCondition(location ,type , number,page , size , totalElement);
+        return ListResponse.success(HttpStatus.OK , "Success" , result , totalElement);
+    }
+
+    @Override
+    public List<Room> getRentedRooms() {
+        Account account = accountRepository.findByUsername(getLoginUser());
+        List<Order> activeOrder = orderRepository.findByAccountAndStatus(account , Constrant.SystemStatus.APPROVED.getValue());
+        List<Room> rooms = null;
+        if(!ObjectUtils.isEmpty(activeOrder)){
+            rooms = activeOrder.stream().map(Order::getRoom).collect(Collectors.toList());
+        }
+        return rooms;
+    }
+
+    private String getLoginUser() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = ((UserDetails)principal).getUsername();
+        log.info("{}" , username);
+        return username;
+    }
+}

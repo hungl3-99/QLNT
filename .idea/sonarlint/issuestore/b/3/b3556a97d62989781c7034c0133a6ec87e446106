@@ -1,0 +1,7 @@
+
+c	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏÉµı
+A
+java:S1452"&Remove usage of generic wildcard type.(Óø¦ïûÿÿÿÿ
+S
+java:S1128"6Remove this unused import 'ptit.QLKS.vo.BaseResponse'.(ºşñ©8¿è…0
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ú¹¹Ó

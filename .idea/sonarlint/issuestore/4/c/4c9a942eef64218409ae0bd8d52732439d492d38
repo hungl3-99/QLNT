@@ -1,0 +1,10 @@
+
+8
+java:S5542"#Use secure mode and padding scheme.(ÏşÉY
+8
+java:S5542&"#Use secure mode and padding scheme.(ÏşÉY
+|
+java:S1488"fImmediately return this expression instead of assigning it to the temporary variable "encryptedValue".(–âÇÚ
+
+java:S1488*"fImmediately return this expression instead of assigning it to the temporary variable "decryptedValue".(ª“…ôùÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Í²ËÛ
