@@ -36,7 +36,7 @@ public class Room extends BaseEntity implements Serializable {
     @Column(name = "network_price" , nullable = false)
     private long networkPrice;
 
-    @Column(name = "max_number_price" , nullable = false)
+    @Column(name = "max_number_people" , nullable = false)
     private long maxNumberPeople;
 
     @Column(name = "type" , nullable = false)
@@ -58,8 +58,6 @@ public class Room extends BaseEntity implements Serializable {
     @Column(name = "is_valid" , nullable = false)
     private boolean isValid;
 
-    @Column(name = "number_of_room" , nullable = false)
-    private int numberOfRoom;
 
 
     @OneToMany(cascade = CascadeType.MERGE, mappedBy = "room")

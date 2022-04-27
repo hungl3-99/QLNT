@@ -109,5 +109,3 @@ k
 ,src/main/java/ptit/QLKS/config/JwtUtils.java,1/a/1abd3a5328d285b48659ded3334c785f8ceae075
 e
 5src/main/java/ptit/QLKS/config/CorsFilterRequest.java,5/4/54c44c45e0c0f64af624484d4cbb15c26619970b
-X
-(src/main/java/ptit/QLKS/entity/Room.java,e/9/e9c818072a5b8e0a44a2f5571b7926e6cde01f8e
