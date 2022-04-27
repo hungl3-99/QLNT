@@ -1,0 +1,21 @@
+
+C
+java:S1452"&Remove usage of generic wildcard type.(ò®ÂÕ8Îö–Ü†0
+C
+java:S1452("&Remove usage of generic wildcard type.(‚ÔßÆ8Ïö–Ü†0
+C
+java:S14524"&Remove usage of generic wildcard type.(›’é™8Ğö–Ü†0
+H
+java:S1452F"&Remove usage of generic wildcard type.(‰«şÿÿÿÿ8Ñö–Ü†0
+H
+java:S1452R"&Remove usage of generic wildcard type.(şÍŒÿùÿÿÿÿ8Ñö–Ü†0
+W
+java:S1128"5Remove this unused import 'ptit.QLKS.dto.AccountDTO'.(·î¹úÿÿÿÿ8Òö–Ü†0
+S
+java:S1128
+"6Remove this unused import 'ptit.QLKS.vo.BaseResponse'.(ºşñ©8Óö–Ü†0
+S
+java:S1128"6Remove this unused import 'ptit.QLKS.vo.ListResponse'.(—ÈŸ±8Óö–Ü†0
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Óö–Ü†0
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(øÇçÿÿÿÿÿ8Õö–Ü†0

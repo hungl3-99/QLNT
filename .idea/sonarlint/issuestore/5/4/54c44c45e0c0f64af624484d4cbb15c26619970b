@@ -1,0 +1,14 @@
+
+Ÿ
+java:S1186Š"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‚“¶î8ß…Ü†0
+8
+java:S3626^"Remove this redundant jump.(ûÁİ…8ä…Ü†0
+X
+java:S1854"6Remove this useless assignment to local variable "ow".(¹¸Ùıÿÿÿÿ8ñ…Ü†0
+I
+java:S1481"'Remove this unused "ow" local variable.(¹¸Ùıÿÿÿÿ8ü…Ü†0
+U
+java:S1135–"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ8ÿ…Ü†0
+L
+java:S5411w"*Use the primitive boolean expression here.(üÈ×ºúÿÿÿÿ8†Ü†0
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ô«êí8‚†Ü†0
