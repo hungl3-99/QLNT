@@ -28,7 +28,7 @@ public class CreateRoomRequest {
     @JsonProperty("network_price")
     private long networkPrice;
 
-    @JsonProperty( "max_number_price")
+    @JsonProperty( "max_number_people")
     private long maxNumberPeople;
 
     @JsonProperty("type")
@@ -39,7 +39,4 @@ public class CreateRoomRequest {
 
     @JsonProperty("location")
     private String location;
-
-    @JsonProperty("number_of_room")
-    private int numberOfRoom;
 }

@@ -15,8 +15,6 @@ f
 6src/main/java/ptit/QLKS/repository/RoomRepository.java,a/c/ac19d5000e92e7122550180960da60ffac8faba8
 l
 <src/main/java/ptit/QLKS/repository/RoomCustomRepository.java,2/7/27111fac3919b29af64ee07ea482242495eff2f8
-a
-1src/main/java/ptit/QLKS/vo/CreateRoomRequest.java,4/b/4b13d1cfbfeeb908f99c0c23677da11b80c9b2f8
 o
 ?src/main/java/ptit/QLKS/repository/AccountCustomRepository.java,b/9/b9e10be1c67af6446113b3ce811e56bf9c66266c
 x
@@ -41,8 +39,6 @@ g
 7src/main/java/ptit/QLKS/repository/OrderRepository.java,4/7/47ac11e8f30559994ba01aa9c27c3b5f1c9eb67c
 \
 ,src/main/java/ptit/QLKS/vo/ListResponse.java,a/2/a22808adb1c75568c438d1b8224209b20c67512e
-e
-5src/main/java/ptit/QLKS/dto/CreateRoomByOwnerDTO.java,4/d/4ddebf7014468ef296f305b21aa49680045182a2
 b
 2src/main/java/ptit/QLKS/dto/ForgotPasswordDTO.java,4/1/413a29631eb609a2c5c383ba81be23091d0a884b
 Y
