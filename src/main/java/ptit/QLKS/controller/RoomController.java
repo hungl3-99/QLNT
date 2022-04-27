@@ -20,7 +20,6 @@ public interface RoomController {
             }
     )
     @PostMapping
-    @PreAuthorize("hasRole('ROLE_STORE')")
     ResponseEntity<?> createRoom(@RequestBody CreateRoomRequest createRoomRequest);
 
     @Operation(

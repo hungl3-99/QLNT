@@ -69,12 +69,12 @@ public class CorsFilterRequest extends AbstractAuthenticationProcessingFilter im
         Map<String, String> mapParam = new HashMap<>();
         mapParam.put("token", authHeader);
 
-        if (!(method.equals("POST") || method.equals("GET") || method.equals("PUT")) || paramUrl.isEmpty()) {
+        if (!(method.equals("POST") || method.equals("GET")  &&  paramUrl.equalsIgnoreCase("/room") || method.equals("PUT")) || paramUrl.isEmpty()) {
             chain.doFilter(request, response);
             return;
         }
         if (paramUrl.startsWith("/login") || paramUrl.equalsIgnoreCase("/logout") || paramUrl.equalsIgnoreCase("/register")
-                || paramUrl.equalsIgnoreCase("/forgot-password") ||paramUrl.equalsIgnoreCase("/chat") || paramUrl.equalsIgnoreCase("/room")) {
+                || paramUrl.equalsIgnoreCase("/forgot-password") ||paramUrl.equalsIgnoreCase("/chat")) {
             chain.doFilter(request, response);
         }
         else {

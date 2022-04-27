@@ -102,7 +102,6 @@ public class RoomServiceImpl implements RoomService {
     private String getLoginUser() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
-        log.info("{}" , username);
         return username;
     }
 }

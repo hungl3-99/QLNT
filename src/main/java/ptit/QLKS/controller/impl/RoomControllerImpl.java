@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ptit.QLKS.constrant.Constrant;
 import ptit.QLKS.controller.RoomController;
 import ptit.QLKS.entity.Room;
+import ptit.QLKS.mapper.impl.RoomMapper;
 import ptit.QLKS.service.RoomService;
 import ptit.QLKS.vo.CreateRoomRequest;
 
@@ -17,6 +18,9 @@ public class RoomControllerImpl implements RoomController {
     @Autowired
     RoomService roomService;
 
+    @Autowired
+    RoomMapper roomMapper;
+
     @Override
     public ResponseEntity<?> createRoom(CreateRoomRequest createRoomRequest) {
         try{
@@ -24,6 +28,7 @@ public class RoomControllerImpl implements RoomController {
             return new ResponseEntity<>(room , HttpStatus.CREATED);
         }
         catch (Exception e){
+            e.printStackTrace();
             return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
         }
     }
@@ -32,7 +37,7 @@ public class RoomControllerImpl implements RoomController {
     public ResponseEntity<?> updateRoom(CreateRoomRequest createRoomRequest) {
         try{
             Room room = roomService.updateRoom(createRoomRequest);
-            return ResponseEntity.ok(room);
+            return ResponseEntity.ok(roomMapper.toDTO(room));
         }
         catch (Exception e){
             return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
