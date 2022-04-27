@@ -5,9 +5,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import ptit.QLKS.vo.BaseResponse;
 import ptit.QLKS.vo.CreateRoomRequest;
-import ptit.QLKS.vo.ListResponse;
 
 
 @RequestMapping("/api/room")

@@ -2,8 +2,14 @@ package ptit.QLKS.mapper.impl;
 
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
+import ptit.QLKS.dto.AccountDTO;
+import ptit.QLKS.dto.RoomDTO;
+import ptit.QLKS.entity.Account;
 import ptit.QLKS.entity.Room;
 import ptit.QLKS.vo.CreateRoomRequest;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class RoomMapper {
@@ -25,5 +31,33 @@ public class RoomMapper {
         room.setValid(true);
         room.setNumberOfRoom(createRoomRequest.getNumberOfRoom());
         return room;
+    }
+
+
+    public RoomDTO toDTO(Room room){
+        RoomDTO roomDTO = new RoomDTO();
+        roomDTO.setId(room.getId());
+        roomDTO.setRoomName(room.getRoomName());
+        roomDTO.setPrice(room.getPrice());
+        roomDTO.setElectricPrice(room.getElectricPrice());
+        roomDTO.setWaterPrice(room.getWaterPrice());
+        roomDTO.setNetworkPrice(room.getNetworkPrice());
+        roomDTO.setMaxNumberPeople(room.getMaxNumberPeople());
+        roomDTO.setType(room.getType());
+        roomDTO.setDescription(room.getDescription());
+        roomDTO.setLocation(room.getLocation());
+        roomDTO.setBooking(room.isBooking());
+        roomDTO.setValid(room.isValid());
+        roomDTO.setNumberOfRoom(room.getNumberOfRoom());
+        roomDTO.setStore(room.getStore().getUsername());
+        return roomDTO;
+    }
+
+    public List<RoomDTO> toListDto(List<Room> list){
+        List<RoomDTO> result = new ArrayList<>();
+        for(Room a:list){
+            result.add(toDTO(a));
+        }
+        return result;
     }
 }

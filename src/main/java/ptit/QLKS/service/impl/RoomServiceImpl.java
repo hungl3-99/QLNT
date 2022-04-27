@@ -45,6 +45,7 @@ public class RoomServiceImpl implements RoomService {
     @Resource
     OrderRepository orderRepository;
 
+
     @Override
     public Room createRoom(CreateRoomRequest createRoomRequest) {
         String username = getLoginUser();
@@ -84,7 +85,7 @@ public class RoomServiceImpl implements RoomService {
     public ListResponse<?> getRoomByConditions(String location, String type, long number , int page , int size) {
         long totalElement = roomCustomRepository.getTotalElement(location , type , number);
         List<Room> result = roomCustomRepository.getRoomByCondition(location ,type , number,page , size , totalElement);
-        return ListResponse.success(HttpStatus.OK , "Success" , result , totalElement);
+        return ListResponse.success(HttpStatus.OK , "Success" , roomMapper.toListDto(result) , totalElement);
     }
 
     @Override

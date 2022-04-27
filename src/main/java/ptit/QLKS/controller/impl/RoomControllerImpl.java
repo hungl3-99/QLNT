@@ -8,7 +8,6 @@ import ptit.QLKS.constrant.Constrant;
 import ptit.QLKS.controller.RoomController;
 import ptit.QLKS.entity.Room;
 import ptit.QLKS.service.RoomService;
-import ptit.QLKS.vo.BaseResponse;
 import ptit.QLKS.vo.CreateRoomRequest;
 
 
