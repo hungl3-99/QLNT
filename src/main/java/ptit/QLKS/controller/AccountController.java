@@ -80,4 +80,16 @@ public interface AccountController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("/update-to-store")
     ResponseEntity<?> updateRequestToStoreByAdmin(@RequestBody UpdateStoreDTO dto);
+
+
+    @Operation(
+            summary = "Get current user account",
+            description = "Author: ",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Success"),
+                    @ApiResponse(responseCode = "500", description = "Server Error")
+            }
+    )
+    @GetMapping("/current-user")
+    ResponseEntity<?> getCurrentUserInfo();
 }

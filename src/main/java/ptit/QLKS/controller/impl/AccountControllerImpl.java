@@ -81,4 +81,15 @@ public class AccountControllerImpl implements AccountController {
             return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
         }
     }
+
+    @Override
+    public ResponseEntity<?> getCurrentUserInfo() {
+        try {
+            AccountDTO accountDTO = accountService.getLoginUserInFoDTO();
+            return ResponseEntity.ok(accountDTO);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(e.getMessage() , HttpStatus.BAD_REQUEST);
+        }
+    }
 }

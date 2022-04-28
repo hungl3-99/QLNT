@@ -33,8 +33,6 @@ e
 5src/main/java/ptit/QLKS/dto/UpdateStatusOrderDTO.java,2/7/274cf723d144c287618e87b228524b485efaad63
 a
 1src/main/java/ptit/QLKS/service/OrderService.java,b/e/be856b3ed7dfa50cdfa81055171c81f6b649a2c6
-j
-:src/main/java/ptit/QLKS/service/impl/OrderServiceImpl.java,d/d/dd3cdb7dbc5a5485b5a9fbd43d65884cb7fd6cb9
 g
 7src/main/java/ptit/QLKS/repository/OrderRepository.java,4/7/47ac11e8f30559994ba01aa9c27c3b5f1c9eb67c
 \
@@ -63,16 +61,8 @@ p
 @src/main/java/ptit/QLKS/controller/impl/LoginControllerImpl.java,9/f/9fbdd676cfd64a8b478bcdc8cfb67315afe554f4
 g
 7src/main/java/ptit/QLKS/controller/LoginController.java,b/4/b498831739eb24c0405aa2144f038ba33b9eede7
-a
-1src/main/java/ptit/QLKS/service/LoginService.java,b/3/b3556a97d62989781c7034c0133a6ec87e446106
 `
 0src/main/java/ptit/QLKS/constrant/Constrant.java,a/0/a016f9ea250cf046b95afd4ae11eacd03d2ba6ee
-r
-Bsrc/main/java/ptit/QLKS/controller/impl/AccountControllerImpl.java,6/1/61657a9790f50d4019c22387e767f1845afc2a73
-j
-:src/main/java/ptit/QLKS/service/impl/LoginServiceImpl.java,b/d/bd255696a3dcd98f973a1e60ea377346e651463b
-h
-8src/main/java/ptit/QLKS/service/impl/AccountService.java,7/c/7ce38ed0f4b15d0894e9a4c98b516cf275f80894
 p
 @src/main/java/ptit/QLKS/controller/impl/OrderControllerImpl.java,f/2/f27e9df794a8f0aec0de2424ab06cc21ab22fa87
 d
@@ -91,8 +81,6 @@ c
 3src/main/java/ptit/QLKS/config/WebSocketConfig.java,1/7/17bed702666bbf9a744bd0fcbcfc30f0dbcbef71
 i
 9src/main/java/ptit/QLKS/service/impl/ChatRoomService.java,f/6/f64ab2674e4f48294df4fd38d87499d1665c1d1d
-i
-9src/main/java/ptit/QLKS/controller/AccountController.java,f/d/fddc0d57c1f9f11c2937f2b710ed5ffca5e68024
 m
 =src/main/java/ptit/QLKS/repository/ChatMessageRepository.java,5/c/5c401fd7743abbff7ef44f367b5e9967e3132756
 j

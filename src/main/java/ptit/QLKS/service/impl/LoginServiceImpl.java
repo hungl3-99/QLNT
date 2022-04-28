@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import ptit.QLKS.config.JwtUtils;
 import ptit.QLKS.constrant.Constrant;
+import ptit.QLKS.dto.AccountDTO;
 import ptit.QLKS.dto.ForgotPasswordDTO;
 import ptit.QLKS.entity.Account;
 import ptit.QLKS.mapper.impl.AccountMapper;
@@ -115,6 +116,16 @@ public class LoginServiceImpl implements LoginService {
         }
     }
 
+    @Override
+    public AccountDTO getAccountInformationOfCurrentUser() {
+        String username = getLoginUser();
+        if(ObjectUtils.isEmpty(username)){
+            throw new IllegalArgumentException("User is not exist !!!");
+        }
+        Account account = accountRepository.findByUsername(username);
+        return accountMapper.toDto(account);
+    }
+
 
     private Account createAccount(RegisterRequest registerRequest , String password) {
         Account account = Account.builder()
@@ -153,4 +164,5 @@ public class LoginServiceImpl implements LoginService {
         log.info("{}" , username);
         return username;
     }
+
 }

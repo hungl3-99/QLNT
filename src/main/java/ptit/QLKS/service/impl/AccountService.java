@@ -112,11 +112,19 @@ public class AccountService implements UserDetailsService {
         return username;
     }
 
+    public AccountDTO getLoginUserInFoDTO(){
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = ((UserDetails)principal).getUsername();
+        Account account = accountRepository.findByUsername(username);
+        return accountMapper.toDto(account);
+    }
+
     public Account getLoginUserInFo(){
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
         Account account = accountRepository.findByUsername(username);
         return account;
     }
+
 
 }
