@@ -74,7 +74,7 @@ public class CorsFilterRequest extends AbstractAuthenticationProcessingFilter im
             return;
         }
         if (paramUrl.startsWith("/login") || paramUrl.equalsIgnoreCase("/logout") || paramUrl.equalsIgnoreCase("/register")
-                || paramUrl.equalsIgnoreCase("/forgot-password") ||paramUrl.equalsIgnoreCase("/chat")) {
+                || paramUrl.equalsIgnoreCase("/forgot-password") ||paramUrl.equalsIgnoreCase("/upload")) {
             chain.doFilter(request, response);
         }
         else {
