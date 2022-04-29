@@ -39,4 +39,7 @@ public class CreateRoomRequest {
 
     @JsonProperty("location")
     private String location;
+
+    @JsonProperty("images")
+    private String images;
 }

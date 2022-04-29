@@ -17,4 +17,5 @@ public class LoginResponse  implements Serializable {
     private String username;
     private String role;
     private boolean isActive;
+    private String avatar;
 }

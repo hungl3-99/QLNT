@@ -58,7 +58,8 @@ public class Room extends BaseEntity implements Serializable {
     @Column(name = "is_valid" , nullable = false)
     private boolean isValid;
 
-
+    @Column(name = "images" , nullable = false)
+    private String images;
 
     @OneToMany(cascade = CascadeType.MERGE, mappedBy = "room")
     List<Order> orders ;

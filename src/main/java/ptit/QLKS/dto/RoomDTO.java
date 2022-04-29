@@ -31,6 +31,8 @@ public class RoomDTO {
 
     private boolean isValid;
 
+    private String images;
+
     private int numberOfRoom;
 
 }

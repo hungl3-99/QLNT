@@ -1,0 +1,8 @@
+
+J
+java:S3740"/Provide the parametrized type for this generic.(Š¨å§ıÿÿÿÿ
+b
+java:S1128"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ8Ä¯Ì€0
+h
+java:S1128"FRemove this unused import 'org.springframework.stereotype.Controller'.(øŠ—Öùÿÿÿÿ8­çÉİ†0
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ò¦…©şÿÿÿÿ

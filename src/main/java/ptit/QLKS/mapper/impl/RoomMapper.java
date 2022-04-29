@@ -27,6 +27,7 @@ public class RoomMapper {
         room.setType(createRoomRequest.getType());
         room.setBooking(false);
         room.setValid(true);
+        room.setImages(createRoomRequest.getImages());
         return room;
     }
 
@@ -46,6 +47,7 @@ public class RoomMapper {
         roomDTO.setBooking(room.isBooking());
         roomDTO.setValid(room.isValid());
         roomDTO.setStore(room.getStore().getUsername());
+        roomDTO.setImages(room.getImages());
         return roomDTO;
     }
 

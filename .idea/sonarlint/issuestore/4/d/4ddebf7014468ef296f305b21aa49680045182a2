@@ -1,2 +1,3 @@
 
+n	java:S116"TRename this field "room_name" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ОЅ¬иш€€€€
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‘хєц
