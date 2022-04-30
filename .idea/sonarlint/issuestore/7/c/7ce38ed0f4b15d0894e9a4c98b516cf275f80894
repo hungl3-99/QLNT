@@ -1,0 +1,13 @@
+
+`	java:S112;"FDefine and throw a dedicated exception instead of using a generic one.(óö‰˜ûÿÿÿÿ
+<
+java:S1452I"&Remove usage of generic wildcard type.(ê°¯
+A
+java:S1452V"&Remove usage of generic wildcard type.(ö÷Ô™úÿÿÿÿ
+{
+java:S1488o"`Immediately return this expression instead of assigning it to the temporary variable "username".(Ù“ñƒøÿÿÿÿ
+
+java:S1488}"_Immediately return this expression instead of assigning it to the temporary variable "account".(°Þþôÿÿÿÿÿ8¥¼æ†‡0
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Í²ËÛ
+R
+java:S3655W"7Call "Optional#isPresent()" before accessing the value.(Á¹¤Ëûÿÿÿÿ

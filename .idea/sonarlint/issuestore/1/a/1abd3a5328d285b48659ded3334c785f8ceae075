@@ -1,0 +1,6 @@
+
+o	java:S116"URename this field "SECRET_KEY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—§Œáüÿÿÿÿ
+k	java:S116"VRename this field "VALID_HOURS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä¯Ñ¢
+7
+java:S1170"!Make this final field static too.(Ä¯Ñ¢
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ô«êí
