@@ -25,7 +25,7 @@ public class FileUploadImpl implements UploadService {
     public BaseResponse UploadFile(MultipartFile[] files) {
 
         for (MultipartFile file : files) {
-            File myFile = new File(converseFileName(file.getOriginalFilename()));
+            File myFile = new File(converseFileName(PATH_TO_FILE_STORE + file.getOriginalFilename()));
 
             try {
                 if (file.getSize() / Math.pow(1024, 2) > 5) {
