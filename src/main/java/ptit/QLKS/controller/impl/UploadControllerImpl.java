@@ -18,8 +18,8 @@ public class UploadControllerImpl implements UploadController {
     UploadService uploadService;
 
     @Override
-    public ResponseEntity<?> FileUpload(MultipartFile[] files, String id) {
-        BaseResponse baseResponseDTO = uploadService.UploadFile(files, id);
+    public ResponseEntity<?> FileUpload(MultipartFile[] files) {
+        BaseResponse baseResponseDTO = uploadService.UploadFile(files);
         return ResponseEntity.ok(baseResponseDTO);
     }
 }

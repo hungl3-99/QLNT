@@ -19,20 +19,13 @@ import java.util.stream.Stream;
 @Log4j2
 public class FileUploadImpl implements UploadService {
 
-    public static final String PATH_TO_FILE_STORE ="src/main/resources/static/images";
+    public static final String PATH_TO_FILE_STORE ="src/main/resources/static/images/";
 
     @Override
-    public BaseResponse UploadFile(MultipartFile[] files, String id) {
-        String dictionary = PATH_TO_FILE_STORE +"/" + id + "/";
-        log.info(dictionary);
-        System.out.println(dictionary);
-        File theDir = new File(dictionary);
-        if (!theDir.exists()) {
-            theDir.mkdirs();
-        }
+    public BaseResponse UploadFile(MultipartFile[] files) {
 
         for (MultipartFile file : files) {
-            File myFile = new File(dictionary + converseFileName(file.getOriginalFilename()));
+            File myFile = new File(converseFileName(file.getOriginalFilename()));
 
             try {
                 if (file.getSize() / Math.pow(1024, 2) > 5) {

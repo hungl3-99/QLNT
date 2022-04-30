@@ -19,6 +19,6 @@ public interface UploadController {
                     @ApiResponse(responseCode = "500", description = "Server Error")
             }
     )
-    @PostMapping("/{id}")
-   ResponseEntity<?> FileUpload(@RequestParam("file") MultipartFile[] files,@PathVariable String id);
+    @PostMapping
+   ResponseEntity<?> FileUpload(@RequestParam("file") MultipartFile[] files);
 }
