@@ -1,0 +1,7 @@
+
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„ŠÂŒúÿÿÿÿ
+A
+java:S1452"&Remove usage of generic wildcard type.(„ŠÂŒúÿÿÿÿ
+s
+java:S1128"QRemove this unused import 'org.springframework.web.bind.annotation.PathVariable'.(¹ûñÅşÿÿÿÿ8öĞ§×‡0
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(øÇçÿÿÿÿÿ

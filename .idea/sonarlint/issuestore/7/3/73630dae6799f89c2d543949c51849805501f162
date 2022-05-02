@@ -1,0 +1,6 @@
+
+<
+java:S1452"&Remove usage of generic wildcard type.(æŠê
+T
+java:S1128"2Remove this unused import 'ptit.QLKS.dto.RoomDTO'.(âôñ³þÿÿÿÿ8¨âÝ¢ˆ0
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ú¹¹Ó

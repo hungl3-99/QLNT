@@ -19,6 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
+import org.springframework.util.ObjectUtils;
 import ptit.QLKS.entity.Account;
 import ptit.QLKS.repository.AccountRepository;
 
@@ -61,16 +62,17 @@ public class CorsFilterRequest extends AbstractAuthenticationProcessingFilter im
         String method = request.getMethod();
         String paramUrl = "";
         String requestUri = request.getRequestURI();
-
+        int length = 0;
         if (requestUri.startsWith("/api")) {
             String[] parts = requestUri.split("/");
             paramUrl = "/" + parts[2];
+            length = parts.length;
         }
         Map<String, String> mapParam = new HashMap<>();
         mapParam.put("token", authHeader);
 
 
-        if (!(method.equals("POST") || method.equals("PUT") || method.equals("GET") ) || paramUrl.isEmpty() ||(method.equals("GET")  &&  paramUrl.equalsIgnoreCase("/room"))) {
+        if (!(method.equals("POST") || method.equals("PUT")  || method.equals("GET")) || paramUrl.isEmpty() ||(method.equals("GET")  &&  paramUrl.equalsIgnoreCase("/room") && length == 3)) {
             chain.doFilter(request, response);
             return;
         }

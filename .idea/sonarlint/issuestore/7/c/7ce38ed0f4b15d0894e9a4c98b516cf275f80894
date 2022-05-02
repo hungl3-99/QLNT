@@ -1,0 +1,15 @@
+
+`	java:S1129"FDefine and throw a dedicated exception instead of using a generic one.(óö‰˜ûÿÿÿÿ
+<
+java:S1452G"&Remove usage of generic wildcard type.(ê°¯
+A
+java:S1452T"&Remove usage of generic wildcard type.(ö÷Ô™úÿÿÿÿ
+N	java:S106z"9Replace this use of System.out or System.err by a logger.(ÄÔÔ
+]	java:S107?"<Method has 8 parameters, which is greater than 7 authorized.(Ä½¬˜üÿÿÿÿ8¡‡œ¢ˆ0
+{
+java:S1488m"`Immediately return this expression instead of assigning it to the temporary variable "username".(Ù“ñƒøÿÿÿÿ
+z
+java:S1488|"_Immediately return this expression instead of assigning it to the temporary variable "account".(°Þþôÿÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Í²ËÛ
+R
+java:S3655U"7Call "Optional#isPresent()" before accessing the value.(Á¹¤Ëûÿÿÿÿ

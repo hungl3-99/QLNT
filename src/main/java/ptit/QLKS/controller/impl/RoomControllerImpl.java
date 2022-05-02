@@ -80,6 +80,7 @@ public class RoomControllerImpl implements RoomController {
             return ResponseEntity.ok(roomService.getRoomOfCurrentStore(page , size));
         }
         catch (Exception e){
+            e.printStackTrace();
             return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
         }
     }

@@ -1,0 +1,5 @@
+
+\	java:S899$"BDo something with the "boolean" value returned by "createNewFile".(τ©ΘΎύÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ν²ΛΫ
+i
+java:S2095%"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(·ώνύÿÿÿÿ
