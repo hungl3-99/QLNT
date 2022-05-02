@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ptit.QLKS.dto.AccountDTO;
+import ptit.QLKS.dto.UpdateAccountDTO;
 import ptit.QLKS.dto.UpdateStoreDTO;
 import ptit.QLKS.vo.BaseResponse;
 import ptit.QLKS.vo.ListResponse;
@@ -25,7 +26,7 @@ public interface AccountController {
             }
     )
     @PutMapping
-    ResponseEntity<?> updateAccount(@RequestBody RegisterRequest registerRequest);
+    ResponseEntity<?> updateAccount(@RequestBody UpdateAccountDTO registerRequest);
 
     @Operation(
             summary = "Inactive User api",
@@ -54,6 +55,7 @@ public interface AccountController {
                                                                          @RequestParam(required = false ) String tel ,
                                                                          @RequestParam(required = false ) String idCard,
                                                                          @RequestParam(required = false) boolean isRequest,
+                                                                         @RequestParam(required = false) String role,
                                                                          @RequestParam(required = false , defaultValue = "1") int page,
                                                                          @RequestParam(required = false , defaultValue = "10") int size);
 

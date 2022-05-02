@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import ptit.QLKS.constrant.Constrant;
 import ptit.QLKS.dto.AccountDTO;
+import ptit.QLKS.dto.UpdateAccountDTO;
 import ptit.QLKS.dto.UpdateStoreDTO;
 import ptit.QLKS.entity.Account;
 import ptit.QLKS.mapper.impl.AccountMapper;
@@ -44,11 +45,8 @@ public class AccountService implements UserDetailsService {
         return new CustomUserDetail(account);
     }
 
-    public Account updateAccountInfo(RegisterRequest registerRequest){
-        Account account = accountRepository.findByUsername(registerRequest.getUsername());
-        if(!getLoginUser().equals(registerRequest.getUsername())){
-            throw new IllegalArgumentException("UNAUTHORIZED");
-        }
+    public Account updateAccountInfo(UpdateAccountDTO registerRequest){
+        Account account = accountRepository.findByUsername(getLoginUser());
         updateAccount(registerRequest, account);
         return accountRepository.save(account);
     }
@@ -62,9 +60,9 @@ public class AccountService implements UserDetailsService {
         accountRepository.save(account);
     }
 
-    public ListResponse<List<AccountDTO>> getAccountByCondition(String username , String address , String tel , String idCard ,boolean isRequest, int page , int size){
-        Long totalElement = accountCustomRepository.getTotalElementByConditions(username , address , tel , idCard , isRequest);
-        List<Account> results = accountCustomRepository.getAccountByConditions(username , address , tel , idCard , isRequest, page , size , totalElement);
+    public ListResponse<List<AccountDTO>> getAccountByCondition(String username , String address , String tel , String idCard ,boolean isRequest, String role, int page , int size){
+        Long totalElement = accountCustomRepository.getTotalElementByConditions(username , address , tel , idCard , isRequest , role);
+        List<Account> results = accountCustomRepository.getAccountByConditions(username , address , tel , idCard , isRequest,role, page , size , totalElement);
         List<AccountDTO> result= accountMapper.toListDto(results);
         return ListResponse.success(HttpStatus.OK , "Success" , result , totalElement);
     }
@@ -95,14 +93,14 @@ public class AccountService implements UserDetailsService {
         return BaseResponse.success(HttpStatus.OK , Constrant.SUCCESS , account);
     }
 
-    private void updateAccount(RegisterRequest registerRequest, Account account) {
-        account.setFullName(registerRequest.getFullName());
+    private void updateAccount(UpdateAccountDTO registerRequest, Account account) {
         account.setTel(registerRequest.getTel());
         account.setAddress(registerRequest.getAddress());
         account.setBirthDay(registerRequest.getBirthDay());
         account.setAvatar(registerRequest.getAvatar());
         account.setIdCard(registerRequest.getIdCard());
-        account.setUpdatedBy(registerRequest.getUsername());
+        account.setUpdatedBy(getLoginUser());
+        account.setRole(account.getRole());
         account.setUpdatedAt(new Date());
     }
 
@@ -121,10 +119,9 @@ public class AccountService implements UserDetailsService {
 
     public Account getLoginUserInFo(){
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(principal);
         String username = ((UserDetails)principal).getUsername();
         Account account = accountRepository.findByUsername(username);
         return account;
     }
-
-
 }

@@ -44,6 +44,7 @@ public class OrderServiceImpl implements OrderService {
         }
         if(!ObjectUtils.isEmpty(orderRoom)){
             order.setRoom(orderRoom);
+            order.setStoreId(orderRoom.getStore().getId());
             order.setAccount(currentAccount);
             order.setStatus(Constrant.SystemStatus.PENDING.getValue());
             setCreatedOrder(order , currentAccount.getUsername());

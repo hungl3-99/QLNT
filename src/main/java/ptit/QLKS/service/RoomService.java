@@ -1,5 +1,7 @@
 package ptit.QLKS.service;
 
+import org.springframework.data.domain.Page;
+import ptit.QLKS.dto.RoomDTO;
 import ptit.QLKS.entity.Room;
 import ptit.QLKS.vo.CreateRoomRequest;
 import ptit.QLKS.vo.ListResponse;
@@ -12,4 +14,6 @@ public interface RoomService {
     Room updateRoom(CreateRoomRequest updateRoomRequest);
     ListResponse<?> getRoomByConditions(String location , String type , long number , int page , int size);
     List<Room> getRentedRooms();
+    Room getRoomById(String id);
+    Page<Room> getRoomOfCurrentStore(int page , int size);
 }

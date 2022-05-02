@@ -2,12 +2,15 @@ package ptit.QLKS.service.impl;
 
 import lombok.extern.log4j.Log4j2;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import ptit.QLKS.constrant.Constrant;
+import ptit.QLKS.dto.RoomDTO;
 import ptit.QLKS.entity.Account;
 import ptit.QLKS.entity.Order;
 import ptit.QLKS.entity.Room;
@@ -17,6 +20,7 @@ import ptit.QLKS.repository.OrderRepository;
 import ptit.QLKS.repository.RoomCustomRepository;
 import ptit.QLKS.repository.RoomRepository;
 import ptit.QLKS.service.RoomService;
+import ptit.QLKS.vo.BaseResponse;
 import ptit.QLKS.vo.CreateRoomRequest;
 import ptit.QLKS.vo.ListResponse;
 
@@ -98,6 +102,18 @@ public class RoomServiceImpl implements RoomService {
         }
         return rooms;
     }
+
+    @Override
+    public Room getRoomById(String id) {
+        return roomRepository.getById(id);
+    }
+
+    @Override
+    public Page<Room> getRoomOfCurrentStore(int page , int size) {
+        PageRequest pageRequest = PageRequest.of(page , size);
+        return roomRepository.getRoomOfCurrentStore(getLoginUser() , pageRequest);
+    }
+
 
     private String getLoginUser() {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();

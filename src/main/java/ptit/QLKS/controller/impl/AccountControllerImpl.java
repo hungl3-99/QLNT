@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ptit.QLKS.constrant.Constrant;
 import ptit.QLKS.controller.AccountController;
 import ptit.QLKS.dto.AccountDTO;
+import ptit.QLKS.dto.UpdateAccountDTO;
 import ptit.QLKS.dto.UpdateStoreDTO;
 import ptit.QLKS.entity.Account;
 import ptit.QLKS.mapper.impl.AccountMapper;
@@ -27,7 +28,7 @@ public class AccountControllerImpl implements AccountController {
     AccountMapper accountMapper;
 
     @Override
-    public ResponseEntity<?> updateAccount(RegisterRequest registerRequest) {
+    public ResponseEntity<?> updateAccount(UpdateAccountDTO registerRequest) {
         try {
             Account account = accountService.updateAccountInfo(registerRequest);
             return ResponseEntity.ok(account);
@@ -52,9 +53,9 @@ public class AccountControllerImpl implements AccountController {
     }
 
     @Override
-    public ResponseEntity<?> getAccountByCondition(String username, String address, String tel, String idCard , boolean isRequest , int page, int size) {
+    public ResponseEntity<?> getAccountByCondition(String username, String address, String tel, String idCard , boolean isRequest ,String role , int page, int size) {
         try {
-            ListResponse<List<AccountDTO>> results = accountService.getAccountByCondition(username , address , tel ,idCard , isRequest , page , size);
+            ListResponse<List<AccountDTO>> results = accountService.getAccountByCondition(username , address , tel ,idCard , isRequest,role , page , size);
             return ResponseEntity.ok(results);
         }
         catch (Exception e){

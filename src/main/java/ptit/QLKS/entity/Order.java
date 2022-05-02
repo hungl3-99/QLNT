@@ -42,6 +42,9 @@ public class Order extends BaseEntity implements Serializable{
     @Column(name = "end_date")
     private Date endDate;
 
+    @Column(name ="store_id")
+    private String storeId;
+
     public void init() {
         this.id = UUID.randomUUID().toString();
     }

@@ -25,7 +25,9 @@ public class Constrant {
         PUBLISH(4 , "PUBLISH"),
         CLOSED(5 , "CLOSED"),
         WAIT(6 , "WAIT"),
-        HIRING(7 , "HIRING");
+        HIRING(7 , "HIRING"),
+        PAID(8 , "PAID"),
+        UNPAID(9 , "UNPAID");
         private int key;
         private String value;
         SystemStatus(int key, String value) {

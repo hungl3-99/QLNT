@@ -63,4 +63,24 @@ public class RoomControllerImpl implements RoomController {
             return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
         }
     }
+
+    @Override
+    public ResponseEntity<?> getRoomById(String id) {
+        try {
+            return ResponseEntity.ok(roomMapper.toDTO(roomService.getRoomById(id)));
+        }
+        catch (Exception e){
+            return null;
+        }
+    }
+
+    @Override
+    public ResponseEntity<?> getRoomByStore(int page, int size) {
+        try {
+            return ResponseEntity.ok(roomService.getRoomOfCurrentStore(page , size));
+        }
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
+        }
+    }
 }

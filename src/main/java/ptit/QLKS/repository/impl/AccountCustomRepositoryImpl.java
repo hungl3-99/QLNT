@@ -21,11 +21,11 @@ public class AccountCustomRepositoryImpl implements AccountCustomRepository {
     EntityManager entityManager;
 
     @Override
-    public List<Account> getAccountByConditions(String username, String address, String tel, String idCard , boolean isRequest, int page, int size, long totalElement) {
+    public List<Account> getAccountByConditions(String username, String address, String tel, String idCard , boolean isRequest, String role , int page, int size, long totalElement) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery criteriaQuery = criteriaBuilder.createQuery();
         Root<Account> account = criteriaQuery.from(Account.class);
-        List<Predicate> predicates = getPredicateList(username, criteriaBuilder,account , address , tel , idCard , isRequest);
+        List<Predicate> predicates = getPredicateList(username, criteriaBuilder,account , address , tel , idCard , isRequest , role);
         int skipNumber;
         if (totalElement <= size) {
             skipNumber = 0;
@@ -38,17 +38,17 @@ public class AccountCustomRepositoryImpl implements AccountCustomRepository {
     }
 
     @Override
-    public Long getTotalElementByConditions(String username, String address, String tel, String idCard , boolean isRequest) {
+    public Long getTotalElementByConditions(String username, String address, String tel, String idCard , boolean isRequest , String role) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Long> criteriaQuery = criteriaBuilder.createQuery(Long.class);
         Root<Account> account = criteriaQuery.from(Account.class);
-        List<Predicate> predicates = getPredicateList(username, criteriaBuilder,account , address , tel , idCard , isRequest);
+        List<Predicate> predicates = getPredicateList(username, criteriaBuilder,account , address , tel , idCard , isRequest , role);
         criteriaQuery.select(criteriaBuilder.count(account)).where(predicates.toArray(new Predicate[]{}));
         return entityManager.createQuery(criteriaQuery).getSingleResult();
 
     }
 
-    private List<Predicate> getPredicateList(String username , CriteriaBuilder criteriaBuilder , Root<Account> accountRoot , String address, String tel, String idCard , boolean isRequest){
+    private List<Predicate> getPredicateList(String username , CriteriaBuilder criteriaBuilder , Root<Account> accountRoot , String address, String tel, String idCard , boolean isRequest , String role){
         List<Predicate> predicates = new ArrayList<>();
 
         if(!ObjectUtils.isEmpty(username)){
@@ -69,6 +69,10 @@ public class AccountCustomRepositoryImpl implements AccountCustomRepository {
 
         if(!ObjectUtils.isEmpty(isRequest)){
             predicates.add(criteriaBuilder.equal(accountRoot.get("isRequest"), isRequest));
+        }
+
+        if(!ObjectUtils.isEmpty(role)){
+            predicates.add(criteriaBuilder.equal(accountRoot.get("role"), isRequest));
         }
 
         return predicates;

@@ -58,4 +58,29 @@ public interface RoomController {
     )
     @GetMapping("/find-hiring-room")
     ResponseEntity<?> findHiringRoom();
+
+
+    @Operation(
+            summary = "Get-All room by id",
+            description = "Author: ",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Success"),
+                    @ApiResponse(responseCode = "500", description = "Server Error")
+            }
+    )
+    @GetMapping("/{id}")
+    ResponseEntity<?> getRoomById(@PathVariable String id);
+
+
+    @Operation(
+            summary = "Get-All room by store",
+            description = "Author: ",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Success"),
+                    @ApiResponse(responseCode = "500", description = "Server Error")
+            }
+    )
+    @GetMapping("/get-by-store")
+    ResponseEntity<?> getRoomByStore(@RequestParam(required = false , defaultValue = "1") int page,
+                                     @RequestParam(required = false , defaultValue = "10") int size);
 }

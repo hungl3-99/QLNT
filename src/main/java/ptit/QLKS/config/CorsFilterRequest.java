@@ -69,6 +69,7 @@ public class CorsFilterRequest extends AbstractAuthenticationProcessingFilter im
         Map<String, String> mapParam = new HashMap<>();
         mapParam.put("token", authHeader);
 
+
         if (!(method.equals("POST") || method.equals("PUT") || method.equals("GET") ) || paramUrl.isEmpty() ||(method.equals("GET")  &&  paramUrl.equalsIgnoreCase("/room"))) {
             chain.doFilter(request, response);
             return;
