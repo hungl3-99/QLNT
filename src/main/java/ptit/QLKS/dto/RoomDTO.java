@@ -43,5 +43,4 @@ public class RoomDTO {
 
     @JsonProperty("number_of_room")
     private int numberOfRoom;
-
 }

@@ -68,6 +68,7 @@ public class LoginServiceImpl implements LoginService {
         loginResponse.setActive(loginAccount.isActive());
         loginResponse.setUsername(loginAccount.getUsername());
         loginResponse.setAvatar(loginAccount.getAvatar());
+        loginResponse.setId(loginAccount.getId());
         return new ResponseEntity<>(loginResponse , HttpStatus.OK);
     }
 

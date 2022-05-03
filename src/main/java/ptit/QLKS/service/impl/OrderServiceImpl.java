@@ -4,17 +4,24 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import ptit.QLKS.constrant.Constrant;
+import ptit.QLKS.dto.BillDTO;
 import ptit.QLKS.dto.OrderDTO;
+import ptit.QLKS.dto.OrderHistoryDTO;
 import ptit.QLKS.dto.UpdateStatusOrderDTO;
 import ptit.QLKS.entity.Account;
+import ptit.QLKS.entity.Bill;
 import ptit.QLKS.entity.Order;
 import ptit.QLKS.entity.Room;
+import ptit.QLKS.mapper.impl.BillMapper;
 import ptit.QLKS.mapper.impl.OrderMapper;
+import ptit.QLKS.mapper.impl.RoomMapper;
+import ptit.QLKS.repository.BillRepository;
 import ptit.QLKS.repository.OrderRepository;
 import ptit.QLKS.repository.RoomRepository;
 import ptit.QLKS.service.OrderService;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -34,6 +41,15 @@ public class OrderServiceImpl implements OrderService {
     @Resource
     OrderMapper orderMapper;
 
+    @Resource
+    RoomMapper roomMapper;
+
+    @Resource
+    BillRepository billRepository;
+
+    @Resource
+    BillMapper billMapper;
+
     @Override
     public Order createOrderInRoomPageByUser(OrderDTO dto) {
         Account currentAccount = accountService.getLoginUserInFo();
@@ -46,8 +62,10 @@ public class OrderServiceImpl implements OrderService {
             order.setRoom(orderRoom);
             order.setStoreId(orderRoom.getStore().getId());
             order.setAccount(currentAccount);
-            order.setStatus(Constrant.SystemStatus.PENDING.getValue());
+            order.setStatus(Constrant.SystemStatus.APPROVED.getValue());
+            orderRoom.setBooking(true);orderRoom.setValid(false);
             setCreatedOrder(order , currentAccount.getUsername());
+            roomRepository.save(orderRoom);
             return orderRepository.save(order);
         }
         return null;
@@ -79,6 +97,27 @@ public class OrderServiceImpl implements OrderService {
             }
         }
         return order;
+    }
+
+    @Override
+    public List<OrderHistoryDTO> getOrderHistory() {
+        Account account = accountService.getLoginUserInFo();
+        List<Order> orders = orderRepository.findByAccount(account);
+        List<OrderHistoryDTO> result = new ArrayList<>();
+        if(!ObjectUtils.isEmpty(orders) && !orders.isEmpty()){
+            for (Order order : orders){
+                OrderHistoryDTO orderHistoryDTO = orderMapper.toHistoryDto(order);
+                orderHistoryDTO.setRoomDTO(roomMapper.toDTO(order.getRoom()));
+                List<Bill> bills = billRepository.findByOrder(order);
+                if(!ObjectUtils.isEmpty(billMapper) && !bills.isEmpty()){
+                    List<BillDTO> billDTOS = billMapper.toListDto(bills);
+                    orderHistoryDTO.setBillDTO(billDTOS);
+                }
+                result.add(orderHistoryDTO);
+            }
+        }
+
+        return result;
     }
 
     private Room validateRoom(String roomID){

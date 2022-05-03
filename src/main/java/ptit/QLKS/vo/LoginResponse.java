@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.domain.PageRequest;
 
 import java.io.Serializable;
 
@@ -18,4 +19,5 @@ public class LoginResponse  implements Serializable {
     private String role;
     private boolean isActive;
     private String avatar;
+    private String id;
 }

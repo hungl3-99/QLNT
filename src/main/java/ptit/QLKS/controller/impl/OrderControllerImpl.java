@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 import ptit.QLKS.constrant.Constrant;
 import ptit.QLKS.controller.OrderController;
 import ptit.QLKS.dto.OrderDTO;
+import ptit.QLKS.dto.OrderHistoryDTO;
 import ptit.QLKS.dto.UpdateStatusOrderDTO;
 import ptit.QLKS.entity.Order;
 import ptit.QLKS.mapper.impl.OrderMapper;
 import ptit.QLKS.service.OrderService;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 public class OrderControllerImpl implements OrderController {
@@ -50,5 +52,17 @@ public class OrderControllerImpl implements OrderController {
             return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
         }
 
+    }
+
+    @Override
+    public ResponseEntity<?> getHiringRoomOfCurrentUser() {
+        try {
+            List<OrderHistoryDTO> list = orderService.getOrderHistory();
+            return ResponseEntity.ok(list);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }

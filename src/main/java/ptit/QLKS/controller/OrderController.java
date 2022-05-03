@@ -5,10 +5,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import ptit.QLKS.dto.OrderDTO;
 import ptit.QLKS.dto.UpdateStatusOrderDTO;
 
@@ -37,4 +34,15 @@ public interface OrderController {
     @PreAuthorize("hasRole('ROLE_STORE')")
     @PutMapping("/update-status")
     ResponseEntity<?> updateStatusOrder(@RequestBody UpdateStatusOrderDTO dto);
+
+    @Operation(
+            summary = "Get current room and bill  of user API",
+            description = "Author: ",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Success"),
+                    @ApiResponse(responseCode = "500", description = "Server Error")
+            }
+    )
+    @GetMapping("/get-current-room")
+    ResponseEntity<?> getHiringRoomOfCurrentUser();
 }

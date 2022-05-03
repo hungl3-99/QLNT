@@ -18,6 +18,8 @@ public interface BillRepository extends JpaRepository<Bill , Integer> {
 
     Bill findByMonthAndYearAndOrder(@Param("month")int month ,@Param("year") int year ,@Param("order") Order order);
 
+    List<Bill> findByOrder(@Param("order") Order order);
+
     @Query("select COALESCE(sum(i.totalBill),0) from Bill i where i.month = :month and i.year = :year and i.status = :status and i.order.storeId= :store")
     Long getSumByConditions(@Param("month")int month ,@Param("year") int year ,@Param("status") String status , @Param("store") String store);
 }
