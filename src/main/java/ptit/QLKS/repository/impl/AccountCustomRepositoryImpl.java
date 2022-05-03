@@ -72,7 +72,7 @@ public class AccountCustomRepositoryImpl implements AccountCustomRepository {
         }
 
         if(!ObjectUtils.isEmpty(role)){
-            predicates.add(criteriaBuilder.equal(accountRoot.get("role"), isRequest));
+            predicates.add(criteriaBuilder.equal(accountRoot.get("role"), role));
         }
 
         return predicates;

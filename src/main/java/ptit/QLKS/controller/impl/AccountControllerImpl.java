@@ -59,6 +59,7 @@ public class AccountControllerImpl implements AccountController {
             return ResponseEntity.ok(results);
         }
         catch (Exception e){
+            e.printStackTrace();
             return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
         }
     }
