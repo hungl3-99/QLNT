@@ -86,9 +86,9 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public ListResponse<?> getRoomByConditions(String location, String type, long number , int page , int size) {
-        long totalElement = roomCustomRepository.getTotalElement(location , type , number);
-        List<Room> result = roomCustomRepository.getRoomByCondition(location ,type , number,page , size , totalElement);
+    public ListResponse<?> getRoomByConditions(String location, String type, long number ,String store, int page , int size) {
+        long totalElement = roomCustomRepository.getTotalElement(location , type , number , store);
+        List<Room> result = roomCustomRepository.getRoomByCondition(location ,type , number,store ,page , size , totalElement);
         return ListResponse.success(HttpStatus.OK , "Success" , roomMapper.toListDto(result) , totalElement);
     }
 

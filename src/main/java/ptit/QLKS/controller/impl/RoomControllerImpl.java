@@ -45,9 +45,9 @@ public class RoomControllerImpl implements RoomController {
     }
 
     @Override
-    public ResponseEntity<?> findRoomByConditions(String location, String type, long number , int page , int size) {
+    public ResponseEntity<?> findRoomByConditions(String location, String type, long number ,String store, int page , int size) {
         try{
-            return ResponseEntity.ok(roomService.getRoomByConditions(location , type , number , page , size));
+            return ResponseEntity.ok(roomService.getRoomByConditions(location , type , number ,store, page , size));
         }
         catch (Exception e){
             return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
@@ -71,17 +71,6 @@ public class RoomControllerImpl implements RoomController {
         }
         catch (Exception e){
             return null;
-        }
-    }
-
-    @Override
-    public ResponseEntity<?> getRoomByStore(int page, int size) {
-        try {
-            return ResponseEntity.ok(roomService.getRoomOfCurrentStore(page , size));
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
         }
     }
 }

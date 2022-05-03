@@ -12,7 +12,7 @@ import java.util.List;
 public interface RoomService {
     Room createRoom(CreateRoomRequest createRoomRequest);
     Room updateRoom(CreateRoomRequest updateRoomRequest);
-    ListResponse<?> getRoomByConditions(String location , String type , long number , int page , int size);
+    ListResponse<?> getRoomByConditions(String location , String type , long number, String store , int page , int size);
     List<Room> getRentedRooms();
     Room getRoomById(String id);
     Page<Room> getRoomOfCurrentStore(int page , int size);

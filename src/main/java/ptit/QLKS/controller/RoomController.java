@@ -45,6 +45,7 @@ public interface RoomController {
     ResponseEntity<?> findRoomByConditions(@RequestParam(name = "location" , required = false) String location,
                                          @RequestParam(name = "type" , required = false) String type,
                                          @RequestParam(name = "number" ,required = false , defaultValue = "10") long number,
+                                         @RequestParam(name = "store" , required = false) String store,
                                          @RequestParam(required = false , defaultValue = "1") int page,
                                          @RequestParam(required = false , defaultValue = "10") int size);
 
@@ -70,17 +71,4 @@ public interface RoomController {
     )
     @GetMapping("/{id}")
     ResponseEntity<?> getRoomById(@PathVariable String id);
-
-
-    @Operation(
-            summary = "Get-All room by store",
-            description = "Author: ",
-            responses = {
-                    @ApiResponse(responseCode = "200", description = "Success"),
-                    @ApiResponse(responseCode = "500", description = "Server Error")
-            }
-    )
-    @GetMapping("/get-by-store")
-    ResponseEntity<?> getRoomByStore(@RequestParam(required = false , defaultValue = "1") int page,
-                                     @RequestParam(required = false , defaultValue = "10") int size);
 }
