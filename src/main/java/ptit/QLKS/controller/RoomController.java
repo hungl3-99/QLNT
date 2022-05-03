@@ -49,17 +49,6 @@ public interface RoomController {
                                          @RequestParam(required = false , defaultValue = "1") int page,
                                          @RequestParam(required = false , defaultValue = "10") int size);
 
-    @Operation(
-            summary = "Get-All room current user-hiring",
-            description = "Author: ",
-            responses = {
-                    @ApiResponse(responseCode = "200", description = "Success"),
-                    @ApiResponse(responseCode = "500", description = "Server Error")
-            }
-    )
-    @GetMapping("/find-hiring-room")
-    ResponseEntity<?> findHiringRoom();
-
 
     @Operation(
             summary = "Get-All room by id",

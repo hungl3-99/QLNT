@@ -1,7 +1,6 @@
 package ptit.QLKS.service;
 
 import org.springframework.data.domain.Page;
-import ptit.QLKS.dto.RoomDTO;
 import ptit.QLKS.entity.Room;
 import ptit.QLKS.vo.CreateRoomRequest;
 import ptit.QLKS.vo.ListResponse;

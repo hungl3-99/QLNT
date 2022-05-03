@@ -54,15 +54,6 @@ public class RoomControllerImpl implements RoomController {
         }
     }
 
-    @Override
-    public ResponseEntity<?> findHiringRoom() {
-        try {
-            return ResponseEntity.ok(roomService.getRentedRooms());
-        }
-        catch (Exception e){
-            return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
-        }
-    }
 
     @Override
     public ResponseEntity<?> getRoomById(String id) {

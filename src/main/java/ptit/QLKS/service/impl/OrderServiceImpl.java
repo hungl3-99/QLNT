@@ -1,6 +1,9 @@
 package ptit.QLKS.service.impl;
 
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import ptit.QLKS.constrant.Constrant;
@@ -15,6 +18,7 @@ import ptit.QLKS.entity.Room;
 import ptit.QLKS.mapper.impl.BillMapper;
 import ptit.QLKS.mapper.impl.OrderMapper;
 import ptit.QLKS.mapper.impl.RoomMapper;
+import ptit.QLKS.repository.AccountRepository;
 import ptit.QLKS.repository.BillRepository;
 import ptit.QLKS.repository.OrderRepository;
 import ptit.QLKS.repository.RoomRepository;
@@ -24,6 +28,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Log4j2
@@ -34,6 +39,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Resource
     AccountService accountService;
+
+    @Autowired
+    AccountRepository accountRepository;
 
     @Resource
     RoomRepository roomRepository;
@@ -136,5 +144,23 @@ public class OrderServiceImpl implements OrderService {
     private void setUpdatedOrder(Order order , String username){
         order.setUpdatedAt(new Date());
         order.setUpdatedBy(username);
+    }
+
+    @Override
+    public List<Room> getRentedRooms() {
+        Account account = accountRepository.findByUsername(getLoginUser());
+        List<Order> activeOrder = orderRepository.findByAccountAndStatus(account , Constrant.SystemStatus.APPROVED.getValue());
+        List<Room> rooms = null;
+        if(!ObjectUtils.isEmpty(activeOrder)){
+            rooms = activeOrder.stream().map(Order::getRoom).collect(Collectors.toList());
+        }
+        return rooms;
+    }
+
+    private String getLoginUser() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(principal);
+        String username = ((UserDetails)principal).getUsername();
+        return username;
     }
 }

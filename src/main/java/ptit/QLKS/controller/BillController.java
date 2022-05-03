@@ -61,8 +61,8 @@ public interface BillController {
             }
     )
     @GetMapping("/statistical")
-    public ResponseEntity<?> getStatisticalByStore(@RequestParam int month ,
-                                                   @RequestParam int year ,
+    public ResponseEntity<?> getStatisticalByStore(@RequestParam(required = false) int month ,
+                                                   @RequestParam(required = false) int year ,
                                                    @RequestParam String store_id);
 
     @Operation(

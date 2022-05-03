@@ -99,5 +99,3 @@ f
 6src/main/java/ptit/QLKS/repository/RoomRepository.java,a/c/ac19d5000e92e7122550180960da60ffac8faba8
 `
 0src/main/java/ptit/QLKS/service/BillService.java,6/2/6294b33df27472a0a3399fb89a479cae92f0049d
-f
-6src/main/java/ptit/QLKS/controller/BillController.java,b/6/b6a60b5158dd328aefd1457cf8e74b460d240faa

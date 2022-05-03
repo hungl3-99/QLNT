@@ -65,4 +65,14 @@ public class OrderControllerImpl implements OrderController {
         }
         return null;
     }
+
+    @Override
+    public ResponseEntity<?> findHiringRoom() {
+        try {
+            return ResponseEntity.ok(orderService.getRentedRooms());
+        }
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
+        }
+    }
 }

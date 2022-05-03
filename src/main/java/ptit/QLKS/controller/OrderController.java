@@ -45,4 +45,15 @@ public interface OrderController {
     )
     @GetMapping("/get-current-room")
     ResponseEntity<?> getHiringRoomOfCurrentUser();
+
+    @Operation(
+            summary = "Get-All room current user-hiring",
+            description = "Author: ",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Success"),
+                    @ApiResponse(responseCode = "500", description = "Server Error")
+            }
+    )
+    @GetMapping("/find-hiring-room")
+    ResponseEntity<?> findHiringRoom();
 }
