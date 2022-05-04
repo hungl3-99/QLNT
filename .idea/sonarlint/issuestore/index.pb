@@ -125,7 +125,5 @@ o
 ?src/main/java/ptit/QLKS/repository/AccountCustomRepository.java,b/9/b9e10be1c67af6446113b3ce811e56bf9c66266c
 f
 6src/main/java/ptit/QLKS/repository/BillRepository.java,a/0/a03fba9a032f1fe4b02d5bbe09a2fe225b699087
-o
-?src/main/java/ptit/QLKS/controller/impl/RoomControllerImpl.java,3/d/3d48d38895605a0415368e0071f9797d8c15ec86
 f
 6src/main/java/ptit/QLKS/controller/RoomController.java,1/8/18416baf44202447f98708b365a269ccb06a6525
