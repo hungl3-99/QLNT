@@ -72,6 +72,9 @@ public class RoomCustomRepositoryImpl implements RoomCustomRepository {
             predicates.add(criteriaBuilder.equal(roomRoot.get("store") ,  account));
         }
 
+        predicates.add(criteriaBuilder.isTrue(roomRoot.get("isValid")));
+        predicates.add(criteriaBuilder.isFalse(roomRoot.get("isBooking")));
+
         return predicates;
     }
 }

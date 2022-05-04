@@ -77,8 +77,6 @@ X
 (src/main/java/ptit/QLKS/dto/BillDTO.java,9/e/9ed00768e45aaafc7b7507be2503b3b87b3e3ab1
 c
 3src/main/java/ptit/QLKS/mapper/impl/BillMapper.java,6/e/6e40145700104135e4df3224cff6a1fb9e651389
-X
-(src/main/java/ptit/QLKS/entity/Room.java,e/9/e9c818072a5b8e0a44a2f5571b7926e6cde01f8e
 ^
 .src/main/java/ptit/QLKS/entity/BaseEntity.java,1/0/101569dff52775e65757ad69ca7255dd706e3319
 ^
@@ -95,10 +93,6 @@ i
 0src/main/java/ptit/QLKS/service/BillService.java,6/2/6294b33df27472a0a3399fb89a479cae92f0049d
 `
 0src/main/java/ptit/QLKS/constrant/Constrant.java,a/0/a016f9ea250cf046b95afd4ae11eacd03d2ba6ee
-l
-<src/main/java/ptit/QLKS/repository/RoomCustomRepository.java,2/7/27111fac3919b29af64ee07ea482242495eff2f8
-u
-Esrc/main/java/ptit/QLKS/repository/impl/RoomCustomRepositoryImpl.java,a/1/a14fcc18e8b9728cce434fc3f22f4e5d6005f975
 j
 :src/main/java/ptit/QLKS/service/impl/LoginServiceImpl.java,b/d/bd255696a3dcd98f973a1e60ea377346e651463b
 a
