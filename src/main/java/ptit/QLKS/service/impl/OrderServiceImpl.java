@@ -7,10 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import ptit.QLKS.constrant.Constrant;
-import ptit.QLKS.dto.BillDTO;
-import ptit.QLKS.dto.OrderDTO;
-import ptit.QLKS.dto.OrderHistoryDTO;
-import ptit.QLKS.dto.UpdateStatusOrderDTO;
+import ptit.QLKS.dto.*;
 import ptit.QLKS.entity.Account;
 import ptit.QLKS.entity.Bill;
 import ptit.QLKS.entity.Order;
@@ -147,14 +144,15 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public List<Room> getRentedRooms() {
+    public List<RoomDTO> getRentedRooms() {
         Account account = accountRepository.findByUsername(getLoginUser());
-        List<Order> activeOrder = orderRepository.findByAccountAndStatus(account , Constrant.SystemStatus.APPROVED.getValue());
+        String id = account.getId();
+        List<Order> activeOrder = orderRepository.findByStoreIdAndStatus(id , Constrant.SystemStatus.APPROVED.getValue());
         List<Room> rooms = null;
         if(!ObjectUtils.isEmpty(activeOrder)){
             rooms = activeOrder.stream().map(Order::getRoom).collect(Collectors.toList());
         }
-        return rooms;
+        return roomMapper.toListDto(rooms);
     }
 
     private String getLoginUser() {

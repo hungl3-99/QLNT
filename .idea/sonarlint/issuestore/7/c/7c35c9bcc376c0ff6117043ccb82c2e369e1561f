@@ -1,12 +1,0 @@
-
-`	java:S112K"FDefine and throw a dedicated exception instead of using a generic one.(ıŞ¥ùÿÿÿÿ
-U	java:S106x"9Replace this use of System.out or System.err by a logger.(ÄÔÔ8€öŞ«ˆ0
-T
-java:S1128"2Remove this unused import 'ptit.QLKS.dto.RoomDTO'.(âôñ³şÿÿÿÿ8†êÖˆ0
-S
-java:S1128"6Remove this unused import 'ptit.QLKS.vo.BaseResponse'.(ºşñ©8‡êÖˆ0
-{
-java:S1488y"`Immediately return this expression instead of assigning it to the temporary variable "username".(Ù“ñƒøÿÿÿÿ
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Í²ËÛ
-Q
-java:S3655N"6Call "oldInfo.isPresent()" before accessing the value.(ÓöñÜüÿÿÿÿ

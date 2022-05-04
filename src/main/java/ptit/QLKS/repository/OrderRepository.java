@@ -16,7 +16,9 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Order , String> {
     List<Order> findByAccountAndRoomAndStatus(Account account , Room room , String status);
     List<Order> findByRoomAndStatus(Room room , String status);
-    List<Order> findByAccountAndStatus(Account account , String status);
+
+    List<Order> findByStoreIdAndStatus(@Param("store_id") String store_id ,@Param("status") String status);
+
     List<Order> findByAccount(Account account);
 
     @Query("select o from Order o where o.room.id = :room and o.status = 'APPROVED' and o.startDate <= :date")

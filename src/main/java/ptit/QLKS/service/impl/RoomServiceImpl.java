@@ -92,16 +92,6 @@ public class RoomServiceImpl implements RoomService {
         return ListResponse.success(HttpStatus.OK , "Success" , roomMapper.toListDto(result) , totalElement);
     }
 
-    @Override
-    public List<Room> getRentedRooms() {
-        Account account = accountRepository.findByUsername(getLoginUser());
-        List<Order> activeOrder = orderRepository.findByAccountAndStatus(account , Constrant.SystemStatus.APPROVED.getValue());
-        List<Room> rooms = null;
-        if(!ObjectUtils.isEmpty(activeOrder)){
-            rooms = activeOrder.stream().map(Order::getRoom).collect(Collectors.toList());
-        }
-        return rooms;
-    }
 
     @Override
     public Room getRoomById(String id) {
