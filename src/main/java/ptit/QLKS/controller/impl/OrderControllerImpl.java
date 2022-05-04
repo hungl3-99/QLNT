@@ -72,6 +72,7 @@ public class OrderControllerImpl implements OrderController {
             return ResponseEntity.ok(orderService.getRentedRooms());
         }
         catch (Exception e){
+            e.printStackTrace();
             return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
         }
     }
