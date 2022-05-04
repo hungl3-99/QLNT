@@ -1,5 +1,6 @@
 package ptit.QLKS.controller.impl;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,7 @@ import ptit.QLKS.vo.CreateRoomRequest;
 
 
 @RestController
+@Log4j2
 public class RoomControllerImpl implements RoomController {
 
     @Autowired
@@ -51,6 +53,7 @@ public class RoomControllerImpl implements RoomController {
         }
         catch (Exception e){
             e.printStackTrace();
+            log.info(e.getMessage());
             return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
         }
     }
