@@ -31,7 +31,7 @@ public class AccountControllerImpl implements AccountController {
     public ResponseEntity<?> updateAccount(UpdateAccountDTO registerRequest) {
         try {
             Account account = accountService.updateAccountInfo(registerRequest);
-            return ResponseEntity.ok(account);
+            return ResponseEntity.ok(accountMapper.toDto(account));
         }
         catch (Exception e){
             return new ResponseEntity(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);

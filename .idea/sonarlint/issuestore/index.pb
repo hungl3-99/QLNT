@@ -143,10 +143,6 @@ f
 6src/main/java/ptit/QLKS/repository/BillRepository.java,a/0/a03fba9a032f1fe4b02d5bbe09a2fe225b699087
 h
 8src/main/java/ptit/QLKS/service/impl/AccountService.java,7/c/7ce38ed0f4b15d0894e9a4c98b516cf275f80894
-r
-Bsrc/main/java/ptit/QLKS/controller/impl/AccountControllerImpl.java,6/1/61657a9790f50d4019c22387e767f1845afc2a73
-i
-9src/main/java/ptit/QLKS/controller/AccountController.java,f/d/fddc0d57c1f9f11c2937f2b710ed5ffca5e68024
 a
 1src/main/java/ptit/QLKS/service/OrderService.java,b/e/be856b3ed7dfa50cdfa81055171c81f6b649a2c6
 `
