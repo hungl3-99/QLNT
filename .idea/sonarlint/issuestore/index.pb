@@ -33,8 +33,6 @@ l
 <src/main/java/ptit/QLKS/service/impl/ChatMessageService.java,9/d/9dfeded11326db8493a40355bf2503aa0fce2187
 k
 ;src/main/java/ptit/QLKS/controller/impl/ChatController.java,c/f/cf4429031a29d12476df385a9b68e36d4aa108f2
-f
-6src/main/java/ptit/QLKS/mapper/impl/AccountMapper.java,0/5/058725ed8da01b8ef3b5635221ba9d018b7607fc
 _
 /src/main/java/ptit/QLKS/entity/ChatMessage.java,9/5/955992322aa456f6f3b545f626e9c1f85b61bf1c
 d
@@ -87,8 +85,6 @@ X
 .src/main/java/ptit/QLKS/dto/CreateBillDTO.java,6/e/6e8afbbecbe5714f5c5e4417f875f9888289e598
 o
 ?src/main/java/ptit/QLKS/controller/impl/BillControllerImpl.java,d/c/dcbd93c2e4610f9456da1a1b0ae2caabf0cca96d
-a
-1src/main/java/ptit/QLKS/dto/UpdateAccountDTO.java,5/b/5be045cc346850307afa0cd1fb59136af49a69da
 _
 /src/main/java/ptit/QLKS/vo/RegisterRequest.java,f/4/f482e7cecce1abe96a3c68fe07d601c197433051
 j
@@ -141,8 +137,6 @@ o
 ?src/main/java/ptit/QLKS/repository/AccountCustomRepository.java,b/9/b9e10be1c67af6446113b3ce811e56bf9c66266c
 f
 6src/main/java/ptit/QLKS/repository/BillRepository.java,a/0/a03fba9a032f1fe4b02d5bbe09a2fe225b699087
-h
-8src/main/java/ptit/QLKS/service/impl/AccountService.java,7/c/7ce38ed0f4b15d0894e9a4c98b516cf275f80894
 a
 1src/main/java/ptit/QLKS/service/OrderService.java,b/e/be856b3ed7dfa50cdfa81055171c81f6b649a2c6
 `

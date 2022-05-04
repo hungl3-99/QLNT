@@ -18,11 +18,10 @@ public class AccountMapper {
         accountDTO.setAddress(account.getAddress());
         accountDTO.setTel(account.getTel());
         accountDTO.setBirthDay(account.getBirthDay());
-        account.setIdCard(account.getIdCard());
-        account.setActive(account.isActive());
-        account.setRequest(account.isRequest());
-        account.setAvatar(account.getAvatar());
-
+        accountDTO.setIdCard(account.getIdCard());
+        accountDTO.setActive(account.isActive());
+        accountDTO.setRequest(account.isRequest());
+        accountDTO.setAvatar(account.getAvatar());
         return accountDTO;
     }
 
