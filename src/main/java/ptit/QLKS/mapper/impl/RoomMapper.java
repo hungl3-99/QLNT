@@ -46,7 +46,6 @@ public class RoomMapper {
         roomDTO.setLocation(room.getLocation());
         roomDTO.setBooking(room.isBooking());
         roomDTO.setValid(room.isValid());
-        roomDTO.setStore(room.getStore().getUsername());
         roomDTO.setImages(room.getImages());
         return roomDTO;
     }

@@ -61,8 +61,6 @@ h
 +src/main/java/ptit/QLKS/dto/AccountDTO.java,7/e/7e764c86f2c62c1d4299626c31d30a6692a59bb4
 [
 +src/main/java/ptit/QLKS/entity/Account.java,c/e/ce265ac54c1c5ca79a9d2dcebdb276de70874d94
-c
-3src/main/java/ptit/QLKS/mapper/impl/RoomMapper.java,c/6/c6e988173089e0c03536a48f27e9a5eb33e8546e
 b
 2src/main/java/ptit/QLKS/dto/ForgotPasswordDTO.java,4/1/413a29631eb609a2c5c383ba81be23091d0a884b
 g
@@ -101,8 +99,6 @@ a
 -src/main/java/ptit/QLKS/vo/LoginResponse.java,5/a/5a6c075b0c020cc99c0dc6a9038afbf7cc79de9c
 \
 ,src/main/java/ptit/QLKS/vo/LoginRequest.java,3/1/310475f91a7b77b3bb8e291d3baf4cc6b3bb52fc
-X
-(src/main/java/ptit/QLKS/dto/RoomDTO.java,9/f/9f350e76516b3839c184506d0593b56c986ab589
 d
 4src/main/java/ptit/QLKS/dto/UpdateStatusBillDTO.java,1/8/18b3637faf09121c0b2d8c95c69196dc0efd5c9d
 i
