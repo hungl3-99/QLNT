@@ -53,9 +53,9 @@ public class BillControllerImpl implements BillController {
     }
 
     @Override
-    public ResponseEntity<?> getStatisticalByStore(int month, int year, String store_id) {
+    public ResponseEntity<?> getStatisticalByStore(String store_id) {
         try {
-            return ResponseEntity.ok(billService.getStatisticalByStore(store_id , month ,year));
+            return ResponseEntity.ok(billService.getStatisticalByStore(store_id));
         }
         catch (Exception e){
             e.printStackTrace();

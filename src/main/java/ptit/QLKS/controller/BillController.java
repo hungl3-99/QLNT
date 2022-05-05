@@ -61,9 +61,7 @@ public interface BillController {
             }
     )
     @GetMapping("/statistical")
-    public ResponseEntity<?> getStatisticalByStore(@RequestParam(required = false) int month ,
-                                                   @RequestParam(required = false) int year ,
-                                                   @RequestParam String store_id);
+    public ResponseEntity<?> getStatisticalByStore(@RequestParam String store_id);
 
     @Operation(
             summary = "update status bill by store",

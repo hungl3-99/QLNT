@@ -8,9 +8,6 @@ import java.io.Serializable;
 @Data
 public class StatisticalDTO implements Serializable {
 
-    private int month;
-
-    private int year;
 
     @JsonProperty("total_paid")
     private long totalPaid;

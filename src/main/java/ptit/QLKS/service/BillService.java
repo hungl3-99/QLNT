@@ -11,7 +11,7 @@ public interface BillService {
     BillDTO createBill(CreateBillDTO dto);
     Page<Bill> getBillByConditions(String status , String findValue , int page , int size);
     BillDTO getBillById(int id);
-    StatisticalDTO getStatisticalByStore(String store , int year , int month);
+    StatisticalDTO getStatisticalByStore(String store);
     BaseResponse<BillDTO> updateStatus(UpdateStatusBillDTO updateStatusBillDTO);
     BillDTO updateBill(BillDTO billDTO);
     BaseResponse<?> checkOut(CreateBillDTO dto);

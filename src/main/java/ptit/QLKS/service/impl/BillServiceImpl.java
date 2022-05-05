@@ -96,13 +96,11 @@ public class BillServiceImpl implements BillService {
     }
 
     @Override
-    public StatisticalDTO getStatisticalByStore(String store, int year, int month) {
-        long paid = billRepository.getSumByConditions(year , month , Constrant.SystemStatus.PAID.getValue(), store);
-        long unpaid = billRepository.getSumByConditions(year , month , Constrant.SystemStatus.UNPAID.getValue(), store);
+    public StatisticalDTO getStatisticalByStore(String store) {
+        long paid = billRepository.getSumByConditions(Constrant.SystemStatus.PAID.getValue(), store);
+        long unpaid = billRepository.getSumByConditions(Constrant.SystemStatus.UNPAID.getValue(), store);
         long total = paid + unpaid;
         StatisticalDTO statisticalDTO = new StatisticalDTO();
-        statisticalDTO.setMonth(month);
-        statisticalDTO.setYear(year);
         statisticalDTO.setTotalPaid(paid);
         statisticalDTO.setTotalUnpaid(unpaid);
         statisticalDTO.setTotal(total);
