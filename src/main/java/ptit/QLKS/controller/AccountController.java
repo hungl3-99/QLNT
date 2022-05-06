@@ -11,6 +11,7 @@ import ptit.QLKS.dto.UpdateStoreDTO;
 import ptit.QLKS.vo.BaseResponse;
 import ptit.QLKS.vo.ListResponse;
 import ptit.QLKS.vo.RegisterRequest;
+import ptit.QLKS.vo.RegisterRequestByAdmin;
 
 import java.util.List;
 
@@ -94,4 +95,16 @@ public interface AccountController {
     )
     @GetMapping("/current-user")
     ResponseEntity<?> getCurrentUserInfo();
+
+    @Operation(
+            summary = "sign-in api by admin",
+            description = "Author: ",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Success"),
+                    @ApiResponse(responseCode = "500", description = "Server Error")
+            }
+    )
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PostMapping("/register-by-admin")
+    ResponseEntity<?> register(@RequestBody RegisterRequestByAdmin registerRequest);
 }

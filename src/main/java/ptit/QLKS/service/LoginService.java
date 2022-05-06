@@ -6,6 +6,7 @@ import ptit.QLKS.dto.ForgotPasswordDTO;
 import ptit.QLKS.vo.LoginRequest;
 import ptit.QLKS.vo.LoginResponse;
 import ptit.QLKS.vo.RegisterRequest;
+import ptit.QLKS.vo.RegisterRequestByAdmin;
 
 
 public interface LoginService {

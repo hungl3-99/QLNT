@@ -1,6 +1,9 @@
 package ptit.QLKS.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,16 +18,16 @@ import ptit.QLKS.entity.Account;
 import ptit.QLKS.mapper.impl.AccountMapper;
 import ptit.QLKS.repository.AccountCustomRepository;
 import ptit.QLKS.repository.AccountRepository;
-import ptit.QLKS.vo.BaseResponse;
-import ptit.QLKS.vo.CustomUserDetail;
-import ptit.QLKS.vo.ListResponse;
-import ptit.QLKS.vo.RegisterRequest;
+import ptit.QLKS.service.EncryptDecryptService;
+import ptit.QLKS.vo.*;
 
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Service
+@Slf4j
 public class AccountService implements UserDetailsService {
 
     @Resource
@@ -35,6 +38,9 @@ public class AccountService implements UserDetailsService {
 
     @Resource
     private AccountCustomRepository accountCustomRepository;
+
+    @Autowired
+    EncryptDecryptService encryptDecryptService;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -123,5 +129,62 @@ public class AccountService implements UserDetailsService {
         String username = ((UserDetails)principal).getUsername();
         Account account = accountRepository.findByUsername(username);
         return account;
+    }
+
+    public ResponseEntity register(RegisterRequestByAdmin requestByAdmin){
+        String username = requestByAdmin.getUsername();
+        String password = requestByAdmin.getPassword();
+
+        Account registerAccount = accountRepository.findByUsername(username);
+        if(!ObjectUtils.isEmpty(registerAccount)){
+            return new ResponseEntity(Constrant.USERNAME_ARE_ALREADY_EXIST , HttpStatus.UNAUTHORIZED);
+        }
+
+        if(!validateUsername(username)){
+            return new ResponseEntity(Constrant.INVALID_USERNAME , HttpStatus.BAD_REQUEST);
+        }
+        try {
+            password = encryptDecryptService.encrypt(password);
+            log.info(password);
+            Account account = createAccount(requestByAdmin , password);
+            accountRepository.save(account);
+            return new ResponseEntity<>(accountMapper.toDto(account) , HttpStatus.CREATED);
+        }
+        catch (Exception e){
+            return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);
+        }
+    }
+
+    private Account createAccount(RegisterRequestByAdmin registerRequest , String password) {
+        Account account = Account.builder()
+                .username(registerRequest.getUsername())
+                .password(password)
+                .isActive(true)
+                .role(Constrant.ROLE_USER)
+                .address(registerRequest.getAddress())
+                .birthDay(registerRequest.getBirthDay())
+                .tel(registerRequest.getTel())
+                .isRequest(false)
+                .idCard(registerRequest.getIdCard())
+                .fullName(registerRequest.getFullName())
+                .avatar(registerRequest.getPassword())
+                .role(registerRequest.getRole())
+                .build();
+        account.setCreatedAt(new Date());
+        account.setCreatedBy(account.getUsername());
+        return account;
+    }
+
+    public boolean validateUsername(String username){
+        Pattern usernamePattern = Pattern.compile("^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$");
+        Pattern emailPattern = Pattern.compile("^(.+)@(.+)$");
+        if(usernamePattern.matcher(username).matches()){
+            return true;
+        }
+
+        if(emailPattern.matcher(username).matches()){
+            return true;
+        }
+        return false;
     }
 }

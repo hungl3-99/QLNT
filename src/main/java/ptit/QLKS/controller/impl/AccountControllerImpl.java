@@ -14,6 +14,7 @@ import ptit.QLKS.service.impl.AccountService;
 import ptit.QLKS.vo.BaseResponse;
 import ptit.QLKS.vo.ListResponse;
 import ptit.QLKS.vo.RegisterRequest;
+import ptit.QLKS.vo.RegisterRequestByAdmin;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -93,5 +94,10 @@ public class AccountControllerImpl implements AccountController {
         catch (Exception e){
             return new ResponseEntity<>(e.getMessage() , HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @Override
+    public ResponseEntity<?> register(RegisterRequestByAdmin registerRequest) {
+        return accountService.register(registerRequest);
     }
 }

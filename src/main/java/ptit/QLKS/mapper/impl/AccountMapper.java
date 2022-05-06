@@ -25,6 +25,7 @@ public class AccountMapper {
         return accountDTO;
     }
 
+
     public List<AccountDTO> toListDto(List<Account> list){
         List<AccountDTO> result = new ArrayList<>();
         for(Account a:list){

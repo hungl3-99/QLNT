@@ -1,10 +1,0 @@
-
-A
-java:S1452"&Remove usage of generic wildcard type.(ºğãÍÿÿÿÿÿ
-A
-java:S1452'"&Remove usage of generic wildcard type.(ÙÅÄÔùÿÿÿÿ
-A
-java:S14522"&Remove usage of generic wildcard type.(ğ¹È¼üÿÿÿÿ
-S
-java:S1128"6Remove this unused import 'ptit.QLKS.vo.BaseResponse'.(ºşñ©8áÀò…0
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(øÇçÿÿÿÿÿ

@@ -22,4 +22,7 @@ public interface BillRepository extends JpaRepository<Bill , Integer> {
 
     @Query("select COALESCE(sum(i.totalBill),0) from Bill i where i.status = :status and i.order.storeId= :store")
     Long getSumByConditions(@Param("status") String status , @Param("store") String store);
+
+    @Query("select i from Bill i where i.order.storeId= :store")
+    List<Bill> getBillByStore(@Param("store") String store);
 }

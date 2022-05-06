@@ -27,6 +27,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
+import java.util.List;
 
 
 @Service
@@ -97,6 +98,7 @@ public class BillServiceImpl implements BillService {
 
     @Override
     public StatisticalDTO getStatisticalByStore(String store) {
+        List<Bill> list = billRepository.getBillByStore(store);
         long paid = billRepository.getSumByConditions(Constrant.SystemStatus.PAID.getValue(), store);
         long unpaid = billRepository.getSumByConditions(Constrant.SystemStatus.UNPAID.getValue(), store);
         long total = paid + unpaid;
@@ -104,6 +106,9 @@ public class BillServiceImpl implements BillService {
         statisticalDTO.setTotalPaid(paid);
         statisticalDTO.setTotalUnpaid(unpaid);
         statisticalDTO.setTotal(total);
+        if(!ObjectUtils.isEmpty(list)){
+            statisticalDTO.setListBill(billMapper.toListDto(list));
+        }
         return statisticalDTO;
     }
 

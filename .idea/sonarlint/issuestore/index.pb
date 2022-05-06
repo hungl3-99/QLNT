@@ -39,8 +39,6 @@ d
 ,src/main/java/ptit/QLKS/entity/ChatRoom.java,4/6/46875356d34fd07976c9141390dea90b37ddbf7f
 \
 ,src/main/java/ptit/QLKS/config/JwtUtils.java,1/a/1abd3a5328d285b48659ded3334c785f8ceae075
-p
-@src/main/java/ptit/QLKS/controller/impl/LoginControllerImpl.java,9/f/9fbdd676cfd64a8b478bcdc8cfb67315afe554f4
 a
 1src/main/java/ptit/QLKS/vo/CreateRoomRequest.java,4/b/4b13d1cfbfeeb908f99c0c23677da11b80c9b2f8
 b
@@ -56,13 +54,9 @@ e
 h
 8src/main/java/ptit/QLKS/controller/UploadController.java,8/9/89b005cc6e8c785b042b10753b889c8fc04cff95
 [
-+src/main/java/ptit/QLKS/dto/AccountDTO.java,7/e/7e764c86f2c62c1d4299626c31d30a6692a59bb4
-[
 +src/main/java/ptit/QLKS/entity/Account.java,c/e/ce265ac54c1c5ca79a9d2dcebdb276de70874d94
 b
 2src/main/java/ptit/QLKS/dto/ForgotPasswordDTO.java,4/1/413a29631eb609a2c5c383ba81be23091d0a884b
-g
-7src/main/java/ptit/QLKS/controller/LoginController.java,b/4/b498831739eb24c0405aa2144f038ba33b9eede7
 e
 5src/main/java/ptit/QLKS/config/WebSecurityConfig.java,d/5/d5f4311ad0db1594d8febe840e61864adb21e183
 q
@@ -75,16 +69,10 @@ c
 .src/main/java/ptit/QLKS/entity/BaseEntity.java,1/0/101569dff52775e65757ad69ca7255dd706e3319
 ^
 .src/main/java/ptit/QLKS/dto/CreateBillDTO.java,6/e/6e8afbbecbe5714f5c5e4417f875f9888289e598
-_
-/src/main/java/ptit/QLKS/vo/RegisterRequest.java,f/4/f482e7cecce1abe96a3c68fe07d601c197433051
 j
 :src/main/java/ptit/QLKS/repository/ChatRoomRepository.java,3/2/325dd4fec1a30224185de0bda97f220e787361d9
 i
 9src/main/java/ptit/QLKS/repository/AccountRepository.java,9/3/93d32edbea3551fb7ed50ac09d561c0a84969a0e
-j
-:src/main/java/ptit/QLKS/service/impl/LoginServiceImpl.java,b/d/bd255696a3dcd98f973a1e60ea377346e651463b
-a
-1src/main/java/ptit/QLKS/service/LoginService.java,b/3/b3556a97d62989781c7034c0133a6ec87e446106
 ]
 -src/main/java/ptit/QLKS/vo/LoginResponse.java,5/a/5a6c075b0c020cc99c0dc6a9038afbf7cc79de9c
 \
@@ -93,8 +81,6 @@ d
 4src/main/java/ptit/QLKS/dto/UpdateStatusBillDTO.java,1/8/18b3637faf09121c0b2d8c95c69196dc0efd5c9d
 ]
 -src/main/java/ptit/QLKS/config/WebConfig.java,c/8/c830da18fa3436faf96dbe015395965ccd731e37
-e
-5src/main/java/ptit/QLKS/config/CorsFilterRequest.java,5/4/54c44c45e0c0f64af624484d4cbb15c26619970b
 Y
 )src/main/java/ptit/QLKS/dto/OrderDTO.java,8/2/826faabd584352ad100f4b1f66167606d71ce787
 X
@@ -107,10 +93,6 @@ x
 Hsrc/main/java/ptit/QLKS/repository/impl/AccountCustomRepositoryImpl.java,7/0/704f21d662d1809e17aa1c23053dd3456f9850ba
 o
 ?src/main/java/ptit/QLKS/repository/AccountCustomRepository.java,b/9/b9e10be1c67af6446113b3ce811e56bf9c66266c
-f
-6src/main/java/ptit/QLKS/controller/RoomController.java,1/8/18416baf44202447f98708b365a269ccb06a6525
-f
-6src/main/java/ptit/QLKS/mapper/impl/AccountMapper.java,0/5/058725ed8da01b8ef3b5635221ba9d018b7607fc
 a
 1src/main/java/ptit/QLKS/dto/UpdateAccountDTO.java,5/b/5be045cc346850307afa0cd1fb59136af49a69da
 f
@@ -129,5 +111,3 @@ g
 7src/main/java/ptit/QLKS/repository/OrderRepository.java,4/7/47ac11e8f30559994ba01aa9c27c3b5f1c9eb67c
 j
 :src/main/java/ptit/QLKS/service/impl/OrderServiceImpl.java,d/d/dd3cdb7dbc5a5485b5a9fbd43d65884cb7fd6cb9
-g
-7src/main/java/ptit/QLKS/controller/OrderController.java,b/9/b9a92ffc69f7b8a59f71505ed3387581f9c09b83
