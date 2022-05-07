@@ -60,10 +60,6 @@ public class BillServiceImpl implements BillService {
 
         Order order = orderRepository.findLastestOrderOfRoom(dto.getRoomId() , getLastDayOfMonth(dto.getMonth() , dto.getYear()));
         if(!ObjectUtils.isEmpty(order)){
-            Bill oldBill = billRepository.findByMonthAndYearAndOrder(dto.getMonth() , dto.getYear() , order);
-            if(!ObjectUtils.isEmpty(oldBill)){
-                return null;
-            }
             if(order.getStatus().equalsIgnoreCase(Constrant.SystemStatus.APPROVED.getValue())){
                 bill.setMonth(dto.getMonth());
                 bill.setYear(dto.getYear());
@@ -74,6 +70,7 @@ public class BillServiceImpl implements BillService {
                 bill.setTotalElectricPrice(room.getElectricPrice() * dto.getElectricNumber());
                 bill.setTotalWaterPrice(room.getWaterPrice() * dto.getWaterNumber());
                 bill.setTotalNetworkPrice(room.getNetworkPrice() * dto.getNetworkNumber());
+                System.out.println(room.getWaterPrice() * dto.getWaterNumber() + " " + room.getNetworkPrice() * dto.getNetworkNumber());
                 bill.setTotalBill(room.getElectricPrice() * dto.getElectricNumber() + room.getWaterPrice() * dto.getWaterNumber()
                 + room.getNetworkPrice() * dto.getNetworkNumber());
                 bill.setStatus(Constrant.SystemStatus.UNPAID.getValue());
