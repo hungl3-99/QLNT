@@ -28,6 +28,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 @Service
@@ -49,34 +50,40 @@ public class BillServiceImpl implements BillService {
     OrderRepository orderRepository;
 
     @Override
-    public BillDTO createBill(CreateBillDTO dto){
-
-        Bill bill = new Bill();
-        Room room  = roomRepository.getById(dto.getRoomId());
-        Account store = accountService.getLoginUserInFo();
-        if(!store.equals(room.getStore())){
-            throw new IllegalArgumentException(Constrant.YOU_DONT_HAVE_PERMISSION_TO_DO_THIS_ACTION);
-        }
-
-        Order order = orderRepository.findLastestOrderOfRoom(dto.getRoomId() , getLastDayOfMonth(dto.getMonth() , dto.getYear()));
-        if(!ObjectUtils.isEmpty(order)){
-            if(order.getStatus().equalsIgnoreCase(Constrant.SystemStatus.APPROVED.getValue())){
-                bill.setMonth(dto.getMonth());
-                bill.setYear(dto.getYear());
-                bill.setElectricNumber(dto.getElectricNumber());
-                bill.setWaterNumber(dto.getWaterNumber());
-                bill.setNetworkNumber(dto.getNetworkNumber());
-                bill.setOrder(order);
-                bill.setTotalElectricPrice(room.getElectricPrice() * dto.getElectricNumber());
-                bill.setTotalWaterPrice(room.getWaterPrice() * dto.getWaterNumber());
-                bill.setTotalNetworkPrice(room.getNetworkPrice() * dto.getNetworkNumber());
-                System.out.println(room.getWaterPrice() * dto.getWaterNumber() + " " + room.getNetworkPrice() * dto.getNetworkNumber());
-                bill.setTotalBill(room.getElectricPrice() * dto.getElectricNumber() + room.getWaterPrice() * dto.getWaterNumber()
-                + room.getNetworkPrice() * dto.getNetworkNumber());
-                bill.setStatus(Constrant.SystemStatus.UNPAID.getValue());
-                billRepository.save(bill);
-                return billMapper.toDTO(bill);
+    public BillDTO createBill(CreateBillDTO dto) {
+        try {
+            Bill bill = new Bill();
+            Room room  = roomRepository.getById(dto.getRoomId());
+            Account store = accountService.getLoginUserInFo();
+            if(!store.equals(room.getStore())){
+                throw new IllegalArgumentException(Constrant.YOU_DONT_HAVE_PERMISSION_TO_DO_THIS_ACTION);
             }
+
+            Order order = orderRepository.findLastestOrderOfRoom(dto.getRoomId() , getLastDayOfMonth(dto.getMonth() , dto.getYear()));
+            if(!ObjectUtils.isEmpty(order)){
+                if(order.getStatus().equalsIgnoreCase(Constrant.SystemStatus.APPROVED.getValue())){
+                    bill.setMonth(dto.getMonth());
+                    bill.setYear(dto.getYear());
+                    bill.setElectricNumber(dto.getElectricNumber());
+                    bill.setWaterNumber(dto.getWaterNumber());
+                    bill.setNetworkNumber(dto.getNetworkNumber());
+                    bill.setOrder(order);
+                    bill.setTotalElectricPrice(room.getElectricPrice() * dto.getElectricNumber());
+                    bill.setTotalWaterPrice(room.getWaterPrice() * dto.getWaterNumber());
+                    bill.setTotalNetworkPrice(room.getNetworkPrice() * dto.getNetworkNumber());
+                    System.out.println(room.getWaterPrice() * dto.getWaterNumber() + " " + room.getNetworkPrice() * dto.getNetworkNumber());
+                    bill.setTotalBill(room.getElectricPrice() * dto.getElectricNumber() + room.getWaterPrice() * dto.getWaterNumber()
+                            + room.getNetworkPrice() * dto.getNetworkNumber());
+                    bill.setStatus(Constrant.SystemStatus.UNPAID.getValue());
+                    billRepository.save(bill);
+                    TimeUnit.SECONDS.sleep(1);
+                    return billMapper.toDTO(bill);
+                }
+            }
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
         return null;
     }
