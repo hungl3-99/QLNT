@@ -50,7 +50,7 @@ public class BillServiceImpl implements BillService {
     OrderRepository orderRepository;
 
     @Override
-    public Bill createBill(CreateBillDTO dto) {
+    public BillDTO createBill(CreateBillDTO dto) {
         try {
             Bill bill = new Bill();
             Room room  = roomRepository.getById(dto.getRoomId());
@@ -77,7 +77,7 @@ public class BillServiceImpl implements BillService {
                     bill.setStatus(Constrant.SystemStatus.UNPAID.getValue());
                     billRepository.save(bill);
                     TimeUnit.SECONDS.sleep(1);
-                    return bill;
+                    return billMapper.toDTO(bill);
                 }
             }
 
@@ -138,7 +138,7 @@ public class BillServiceImpl implements BillService {
     @Override
     @Transactional
     public BaseResponse<?> checkOut(CreateBillDTO dto) {
-        Bill billDTO = createBill(dto);
+        BillDTO billDTO = createBill(dto);
         if(!ObjectUtils.isEmpty(billDTO)){
             Room room = roomRepository.getById(dto.getRoomId());
             if(!room.getStore().getUsername().equalsIgnoreCase(getLoginUser())){

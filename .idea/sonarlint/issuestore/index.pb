@@ -113,8 +113,6 @@ i
 0src/main/java/ptit/QLKS/constrant/Constrant.java,a/0/a016f9ea250cf046b95afd4ae11eacd03d2ba6ee
 X
 (src/main/java/ptit/QLKS/dto/RoomDTO.java,9/f/9f350e76516b3839c184506d0593b56c986ab589
-f
-6src/main/java/ptit/QLKS/controller/BillController.java,b/6/b6a60b5158dd328aefd1457cf8e74b460d240faa
 _
 /src/main/java/ptit/QLKS/dto/StatisticalDTO.java,b/9/b9b6ef5f8c87a6590df0adcd9fe4541187d66144
 [
@@ -151,8 +149,6 @@ g
 7src/main/java/ptit/QLKS/repository/ThemeRepository.java,0/a/0a67aef3a576116c4c2ffa8b7fc11db88daed9bf
 j
 :src/main/java/ptit/QLKS/service/impl/OrderServiceImpl.java,d/d/dd3cdb7dbc5a5485b5a9fbd43d65884cb7fd6cb9
-o
-?src/main/java/ptit/QLKS/controller/impl/BillControllerImpl.java,d/c/dcbd93c2e4610f9456da1a1b0ae2caabf0cca96d
 p
 @src/main/java/ptit/QLKS/controller/impl/OrderControllerImpl.java,f/2/f27e9df794a8f0aec0de2424ab06cc21ab22fa87
 p

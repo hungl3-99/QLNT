@@ -26,7 +26,7 @@ public class BillMapper {
             billDTO.setRoomName(bill.getOrder().getRoom().getRoomName());
             billDTO.setStoreName(bill.getOrder().getRoom().getStore().getUsername());
             billDTO.setTotalElectricPrice(bill.getTotalElectricPrice());
-            billDTO.setTotalWaterPrice(bill.getTotalNetworkPrice());
+            billDTO.setTotalWaterPrice(bill.getTotalWaterPrice());
             billDTO.setTotalNetworkPrice(bill.getTotalNetworkPrice());
             billDTO.setTotalBill(bill.getTotalBill());
             billDTO.setStatus(bill.getStatus());
