@@ -63,8 +63,6 @@ q
 Asrc/main/java/ptit/QLKS/controller/impl/UploadControllerImpl.java,4/9/49c1758ddfcb0edaa071d0f032f0f9ea0aacc974
 X
 (src/main/java/ptit/QLKS/dto/BillDTO.java,9/e/9ed00768e45aaafc7b7507be2503b3b87b3e3ab1
-c
-3src/main/java/ptit/QLKS/mapper/impl/BillMapper.java,6/e/6e40145700104135e4df3224cff6a1fb9e651389
 ^
 .src/main/java/ptit/QLKS/entity/BaseEntity.java,1/0/101569dff52775e65757ad69ca7255dd706e3319
 j
@@ -81,8 +79,6 @@ d
 -src/main/java/ptit/QLKS/config/WebConfig.java,c/8/c830da18fa3436faf96dbe015395965ccd731e37
 Y
 )src/main/java/ptit/QLKS/dto/OrderDTO.java,8/2/826faabd584352ad100f4b1f66167606d71ce787
-X
-(src/main/java/ptit/QLKS/entity/Bill.java,9/4/94ca017b0c2b5a9601010bc25f117e6410a2bab7
 `
 0src/main/java/ptit/QLKS/dto/OrderHistoryDTO.java,4/b/4bd5b7f1ee8bb5b440b2932082a2ce341fd6fd22
 d
