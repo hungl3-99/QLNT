@@ -34,6 +34,9 @@ public class OrderControllerImpl implements OrderController {
             }
             return new ResponseEntity<>(orderMapper.toDto(order) , HttpStatus.CREATED);
         }
+        catch (IllegalArgumentException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
         catch (Exception e){
             e.printStackTrace();
             return ResponseEntity.internalServerError().body(Constrant.SOMETHING_WENT_WRONG);

@@ -99,8 +99,6 @@ f
 6src/main/java/ptit/QLKS/repository/RoomRepository.java,a/c/ac19d5000e92e7122550180960da60ffac8faba8
 Y
 )src/main/java/ptit/QLKS/entity/Order.java,c/0/c0145bed6ca62a320f081526db16be7a2d015b30
-a
-1src/main/java/ptit/QLKS/service/OrderService.java,b/e/be856b3ed7dfa50cdfa81055171c81f6b649a2c6
 X
 (src/main/java/ptit/QLKS/entity/Room.java,e/9/e9c818072a5b8e0a44a2f5571b7926e6cde01f8e
 u
@@ -109,8 +107,6 @@ l
 <src/main/java/ptit/QLKS/repository/RoomCustomRepository.java,2/7/27111fac3919b29af64ee07ea482242495eff2f8
 g
 7src/main/java/ptit/QLKS/repository/OrderRepository.java,4/7/47ac11e8f30559994ba01aa9c27c3b5f1c9eb67c
-j
-:src/main/java/ptit/QLKS/service/impl/OrderServiceImpl.java,d/d/dd3cdb7dbc5a5485b5a9fbd43d65884cb7fd6cb9
 _
 /src/main/java/ptit/QLKS/dto/UpdateStoreDTO.java,0/1/01543b870ad9f37cfc7d25d90a8121af2eab700a
 c
