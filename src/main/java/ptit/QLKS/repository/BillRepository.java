@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository
 public interface BillRepository extends JpaRepository<Bill , Integer> {
-    @Query("select u from Bill u where ((u.order.room.roomName like %:value% or u.order.room.roomName is null ) or (u.order.account.username like %:value% or u.order.account.username is null )) and u.status = :status ")
+    @Query("select u from Bill u where ((u.order.room.roomName like %:value% or :value is null ) or (u.order.account.username like %:value% or :value is null )) and u.status = :status ")
     Page<Bill> findByCondition(@Param("status") String status , @Param("value") String value , Pageable pageable);
 
     Bill findByMonthAndYearAndOrder(@Param("month")int month ,@Param("year") int year ,@Param("order") Order order);
