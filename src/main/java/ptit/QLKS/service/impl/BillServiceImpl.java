@@ -2,6 +2,7 @@ package ptit.QLKS.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -89,10 +90,11 @@ public class BillServiceImpl implements BillService {
     }
 
     @Override
-    public Page<Bill> getBillByConditions(String status , String findValue , int page , int size) {
+    public Page<BillDTO> getBillByConditions(String status , String findValue , int page , int size) {
         PageRequest pageRequest = PageRequest.of(page , size);
         Page<Bill> bills = billRepository.findByCondition(status , findValue , pageRequest);
-        return bills;
+        List<BillDTO> billDTOS = billMapper.toListDto(bills.getContent());
+        return new PageImpl<>(billDTOS, pageRequest, bills.getTotalElements());
     }
 
     @Override
