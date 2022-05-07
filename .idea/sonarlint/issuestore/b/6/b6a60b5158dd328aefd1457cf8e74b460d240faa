@@ -1,0 +1,17 @@
+
+<
+java:S1452"&Remove usage of generic wildcard type.(ØêÙ
+<
+java:S1452%"&Remove usage of generic wildcard type.(ýäàà
+A
+java:S14524"&Remove usage of generic wildcard type.(ðÉÒ€üÿÿÿÿ
+<
+java:S1452@"&Remove usage of generic wildcard type.(ÐÞù¦
+A
+java:S1452K"&Remove usage of generic wildcard type.(€æà­þÿÿÿÿ
+<
+java:S1452V"&Remove usage of generic wildcard type.(¥¨ðŠ
+<
+java:S1452b"&Remove usage of generic wildcard type.(•˜Ú®
+f	java:S117@"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÐÞù¦
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(øÇçÿÿÿÿÿ
