@@ -72,12 +72,8 @@ public class BillServiceImpl implements BillService {
                 bill.setNetworkNumber(dto.getNetworkNumber());
                 bill.setOrder(order);
                 bill.setTotalElectricPrice(room.getElectricPrice() * dto.getElectricNumber());
-                long p1 = room.getWaterPrice() * dto.getWaterNumber();
-                bill.setTotalWaterPrice(p1);
-                System.out.println(p1);
-                long p2 = room.getNetworkPrice() * dto.getNetworkNumber();
-                bill.setTotalNetworkPrice(p2);
-                System.out.println(p2);
+                bill.setTotalWaterPrice(room.getWaterPrice() * dto.getWaterNumber());
+                bill.setTotalNetworkPrice(room.getNetworkPrice() * dto.getNetworkNumber());
                 bill.setTotalBill(room.getElectricPrice() * dto.getElectricNumber() + room.getWaterPrice() * dto.getWaterNumber()
                 + room.getNetworkPrice() * dto.getNetworkNumber());
                 bill.setStatus(Constrant.SystemStatus.UNPAID.getValue());
