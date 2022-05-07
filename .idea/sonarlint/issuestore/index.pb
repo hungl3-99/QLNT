@@ -161,5 +161,3 @@ Y
 )src/main/java/ptit/QLKS/entity/Theme.java,2/b/2bbfee8e9fab529b7a7aa2fdbb911d57f6dc67a4
 g
 7src/main/java/ptit/QLKS/controller/ThemeController.java,7/1/71d4da170fdf5dbb9a160ba729c9684be4008837
-X
-(src/main/java/ptit/QLKS/entity/Bill.java,9/4/94ca017b0c2b5a9601010bc25f117e6410a2bab7

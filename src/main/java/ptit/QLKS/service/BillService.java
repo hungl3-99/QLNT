@@ -8,7 +8,7 @@ import ptit.QLKS.vo.BaseResponse;
 
 
 public interface BillService {
-    BillDTO createBill(CreateBillDTO dto);
+    Bill createBill(CreateBillDTO dto);
     Page<Bill> getBillByConditions(String status , String findValue , int page , int size);
     BillDTO getBillById(int id);
     StatisticalDTO getStatisticalByStore(String store);
