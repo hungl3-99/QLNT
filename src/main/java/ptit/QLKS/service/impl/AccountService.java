@@ -97,7 +97,7 @@ public class AccountService implements UserDetailsService {
             account.setUpdatedAt(new Date());
             accountRepository.save(account);
         }
-        return BaseResponse.success(HttpStatus.OK , Constrant.SUCCESS , account);
+        return BaseResponse.success(HttpStatus.OK , Constrant.SUCCESS ,accountMapper.toDto(account));
     }
 
     private void updateAccount(UpdateAccountDTO registerRequest, Account account) {
