@@ -59,7 +59,8 @@ public class AccountService implements UserDetailsService {
 
     public void inActiveUser(String username){
         Account account = accountRepository.findByUsername(username);
-        if(ObjectUtils.isEmpty(account) || !account.getRole().equals(Constrant.ROLE_ADMIN)){
+        Account admin = accountRepository.findByUsername(getLoginUser());
+        if(!admin.getRole().equalsIgnoreCase(Constrant.ROLE_ADMIN)){
             throw new RuntimeException("You dont have permission to do this action !!!" );
         }
         account.setActive(false);

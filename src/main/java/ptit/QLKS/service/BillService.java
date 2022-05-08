@@ -15,4 +15,5 @@ public interface BillService {
     BaseResponse<BillDTO> updateStatus(UpdateStatusBillDTO updateStatusBillDTO);
     BillDTO updateBill(BillDTO billDTO);
     BaseResponse<?> checkOut(CreateBillDTO dto);
+    void deleteBill(int id);
 }

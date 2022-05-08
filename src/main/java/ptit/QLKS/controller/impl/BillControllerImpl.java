@@ -101,4 +101,15 @@ public class BillControllerImpl implements BillController {
             return new ResponseEntity<>(Constrant.SOMETHING_WENT_WRONG, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @Override
+    public ResponseEntity<?> deleteBill(int id) {
+        try {
+            billService.deleteBill(id);
+            return ResponseEntity.ok(Constrant.SUCCESS);
+        }
+        catch (Exception e){
+            return ResponseEntity.ok(Constrant.CREATE_ORDER_FAILURE);
+        }
+    }
 }

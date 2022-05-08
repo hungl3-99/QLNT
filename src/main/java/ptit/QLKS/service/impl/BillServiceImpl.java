@@ -165,6 +165,10 @@ public class BillServiceImpl implements BillService {
         return null;
     }
 
+    @Override
+    public void deleteBill(int id) {
+        billRepository.deleteById(id);
+    }
 
 
     private String getLoginUser() {

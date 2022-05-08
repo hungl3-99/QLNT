@@ -96,6 +96,18 @@ public interface BillController {
     )
     @PutMapping("/check-out")
     ResponseEntity<?> checkout(@RequestBody CreateBillDTO createBillDTO);
+
+
+    @Operation(
+            summary = "API delete bill",
+            description = "Author: ",
+            responses = {
+                    @ApiResponse(responseCode = "200", description = "Success"),
+                    @ApiResponse(responseCode = "500", description = "Server Error")
+            }
+    )
+    @DeleteMapping
+    ResponseEntity<?> deleteBill(@RequestParam int id);
 }
 
 

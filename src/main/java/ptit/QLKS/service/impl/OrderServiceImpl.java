@@ -148,9 +148,11 @@ public class OrderServiceImpl implements OrderService {
         Account account = accountRepository.findByUsername(getLoginUser());
         String id = account.getId();
         List<Order> activeOrder = orderRepository.findByStoreIdAndStatus(id , Constrant.SystemStatus.APPROVED.getValue());
-        List<Room> rooms = null;
+        List<Room> rooms = new ArrayList<>();
         if(!ObjectUtils.isEmpty(activeOrder)){
-            rooms = activeOrder.stream().map(Order::getRoom).collect(Collectors.toList());
+            for(Order order : activeOrder){
+                rooms.add(order.getRoom());
+            }
         }
         return roomMapper.toListDto(rooms);
     }
